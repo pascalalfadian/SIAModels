@@ -26,9 +26,9 @@ public interface HasPrasyarat {
 	
 	/**
 	 * Package tempat menyimpan seluruh turunan standar interface ini. Perlu didefinisikan
-	 * manual, karen Java reflection tidak dapat mendeteksi otomatis.
+	 * manual, karena Java reflection tidak dapat mendeteksi otomatis.
 	 */
-	public String DEFAULT_PRASYARAT_PACKAGE = "id.ac.unpar.siagateway.models.matakuliah";
+	public String DEFAULT_PRASYARAT_PACKAGE = "id.ac.unpar.siamodels.matakuliah";
 	
 	/**
 	 * Memeriksa prasyarat-prasyarat dari kuliah, spesifik untuk mahasiswa
