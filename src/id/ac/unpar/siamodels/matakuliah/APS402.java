@@ -2,10 +2,11 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
+import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
-public class APS402 implements HasPrasyarat {
+public class APS402 implements HasPrasyarat, Wajib {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

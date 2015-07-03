@@ -6,7 +6,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
-public class AIF302 implements HasPrasyarat, Wajib {
+public class AIF303 implements HasPrasyarat, Wajib {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
