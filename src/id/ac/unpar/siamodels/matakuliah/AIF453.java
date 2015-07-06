@@ -10,10 +10,10 @@ public class AIF453 implements HasPrasyarat, Pilihan {
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
 		boolean ok = false;
-		if (mahasiswa.hasLulusKuliah("AIF204") || mahasiswa.hasLulusKuliah("AIF294")) {
+		if (mahasiswa.hasTempuhKuliah("AIF204") || mahasiswa.hasTempuhKuliah("AIF294")) {
 			ok = true;
 		}
-		if ((mahasiswa.hasLulusKuliah("AIF102") || !mahasiswa.hasLulusKuliah("AIF192")) && mahasiswa.calculateIPKLulus() > 2.75) {
+		if ((mahasiswa.hasTempuhKuliah("AIF102") || !mahasiswa.hasTempuhKuliah("AIF192")) && mahasiswa.calculateIPKLulus() > 2.75) {
 			ok = true;
 		}
 		if (!ok) {

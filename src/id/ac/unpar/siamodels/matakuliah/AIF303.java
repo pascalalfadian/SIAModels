@@ -10,12 +10,12 @@ public class AIF303 implements HasPrasyarat, Wajib {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
-		int sksLulus = mahasiswa.calculateSKSLulus();
-		if (sksLulus < 84) {
-			reasonsContainer.add("SKS Lulus " + sksLulus + ", belum mencapai syarat minimal 84");			
-			return false;
+		boolean ok = true;
+		if (!mahasiswa.hasTempuhKuliah("AIF204") && !mahasiswa.hasTempuhKuliah("AIF294")) {
+			reasonsContainer.add("Tidak memenuhi prasyarat tempuh AIF204 atau AIF294");
+			ok = false;
 		}
-		return true;
+		return ok;
 	}
 
 }
