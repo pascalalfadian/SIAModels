@@ -12,7 +12,7 @@ public class AIF402 implements HasPrasyarat, Wajib {
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
 		if (mahasiswa.hasLulusKuliah("AIF401")) {
 			return true;
-		} else if (mahasiswa.calculateIPKLulus() >= 124) {
+		} else if (mahasiswa.calculateSKSLulus() >= 124) {
 			reasonsContainer.add("CATATAN: Mahasiswa harus mengambil juga AIF401 (tempuh bersama)");
 			return true;
 		} else {
