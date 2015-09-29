@@ -95,13 +95,12 @@ public class Mahasiswa {
 			throw new ArrayIndexOutOfBoundsException("Minimal harus ada satu nilai untuk menghitung IPS");
 		}
 		int lastIndex = riwayatNilai.size() - 1;
-		int semester = riwayatNilai.get(lastIndex).getSemester();
-		int tahunAjaran = riwayatNilai.get(lastIndex).getTahunAjaran();
+		TahunSemester tahunSemester = riwayatNilai.get(lastIndex).getTahunSemester();
 		double totalNilai = 0;
 		double totalSKS = 0;
 		for (int i = lastIndex; i >= 0; i--) {
 			Nilai nilai = riwayatNilai.get(i);
-			if (nilai.semester == semester && nilai.tahunAjaran == tahunAjaran) {
+			if (nilai.tahunSemester.equals(tahunSemester)) {
 				if (nilai.getAngkaAkhir() != null) {
 					totalNilai += nilai.getMataKuliah().getSKS() * nilai.getAngkaAkhir();
 					totalSKS += nilai.getMataKuliah().getSKS();
@@ -194,10 +193,8 @@ public class Mahasiswa {
 	 *
 	 */
 	public static class Nilai {
-		/** Tahun ajaran kuliah ini diambil */
-		protected final int tahunAjaran;
-		/** Semester kuliah ini diambil, salah satu dari {@link Semester} */
-		protected final int semester;
+		/** Tahun dan Semester kuliah ini diambil */
+		protected final TahunSemester tahunSemester;
 		/** Mata kuliah yang diambil */
 		protected final MataKuliah mataKuliah;
 		/** Kelas kuliah */
@@ -211,12 +208,11 @@ public class Mahasiswa {
 		/** Nilai Akhir */
 		protected final Character nilaiAkhir;
 
-		public Nilai(int tahunAjaran, int semester, MataKuliah mataKuliah,
+		public Nilai(TahunSemester tahunSemester, MataKuliah mataKuliah,
 				Character kelas, Double nilaiART, Double nilaiUTS, Double nilaiUAS,
 				Character nilaiAkhir) {
 			super();
-			this.tahunAjaran = tahunAjaran;
-			this.semester = semester;
+			this.tahunSemester = tahunSemester;
 			this.mataKuliah = mataKuliah;
 			this.kelas = kelas;
 			this.nilaiART = nilaiART;
@@ -276,20 +272,22 @@ public class Mahasiswa {
 			return null;
 		}
 
-		public int getTahunAjaran() {
-			return tahunAjaran;
+		public TahunSemester getTahunSemester() {
+			return tahunSemester;
 		}
 
-		public int getSemester() {
-			return semester;
+		public int getTahunAjaran() {
+			return tahunSemester.getTahun();
+		}
+		
+		public Semester getSemester() {
+			return tahunSemester.getSemester();
 		}
 
 		@Override
 		public String toString() {
-			return "Nilai [tahunAjaran=" + tahunAjaran + ", semester="
-					+ semester + ", mataKuliah=" + mataKuliah + ", kelas="
-					+ kelas + ", nilaiART=" + nilaiART + ", nilaiUTS="
-					+ nilaiUTS + ", nilaiUAS=" + nilaiUAS + ", nilaiAkhir="
+			return "Nilai [tahunSemester=" + tahunSemester + ", mataKuliah=" + mataKuliah + ", kelas=" + kelas
+					+ ", nilaiART=" + nilaiART + ", nilaiUTS=" + nilaiUTS + ", nilaiUAS=" + nilaiUAS + ", nilaiAkhir="
 					+ nilaiAkhir + "]";
 		}
 
@@ -303,19 +301,7 @@ public class Mahasiswa {
 
 			@Override
 			public int compare(Nilai o1, Nilai o2) {
-				if (o1.tahunAjaran < o2.tahunAjaran) {
-					return -1;
-				}
-				if (o1.tahunAjaran > o2.tahunAjaran) {
-					return + 1;
-				}
-				if (o1.semester < o2.semester) {
-					return -1;
-				}
-				if (o1.semester > o2.semester) {
-					return +1;
-				}
-				return 0;
+				return o1.getTahunSemester().compareTo(o2.getTahunSemester());
 			}
 		}
 	}
