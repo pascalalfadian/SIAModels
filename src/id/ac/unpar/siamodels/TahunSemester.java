@@ -82,5 +82,9 @@ public final class TahunSemester implements Comparable<TahunSemester> {
 		}
 		return this.compareTo((TahunSemester)obj) == 0;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "TahunSemester [" + getTahun() + "/" + getSemester() + "]";
+	}	
 }
