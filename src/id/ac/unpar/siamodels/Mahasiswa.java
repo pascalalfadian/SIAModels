@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Mahasiswa {
 	protected final String npm;
@@ -16,7 +17,7 @@ public class Mahasiswa {
 	public Mahasiswa(String npm) throws NumberFormatException {
 		super();
 		if (!npm.matches("[0-9]{10}")) {
-			throw new NumberFormatException("NPM tidak valid!");
+			throw new NumberFormatException("NPM tidak valid: " + npm);
 		}
 		this.npm = npm;
 		this.riwayatNilai = new ArrayList<Nilai>();
@@ -49,13 +50,12 @@ public class Mahasiswa {
 	 *   <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
 	 * </ul>
 	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
-	 * @return IPK Lulus
-	 * @throws ArrayIndexOutOfBoundsException jika tidak ada nilai
+	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum mengambil satu kuliah pun.
 	 */
 	public double calculateIPKLulus() throws ArrayIndexOutOfBoundsException {
 		List<Nilai> riwayatNilai = getRiwayatNilai();
 		if (riwayatNilai.size() == 0) {
-			throw new ArrayIndexOutOfBoundsException("Minimal harus ada satu nilai untuk menghitung IPK Lulus");
+			return Double.NaN;
 		}		
 		Map<String, Double> nilaiTerbaik = new HashMap<String, Double>();
 		int totalSKS = 0;
@@ -137,7 +137,23 @@ public class Mahasiswa {
 			}			
 		}
 		return totalSKS;
-	}	
+	}
+	
+	/**
+	 * Mendapatkan seluruh tahun semester di mana mahasiswa ini tercatat
+	 * sebagai mahasiswa aktif, dengan strategi memeriksa riwayat nilainya.
+	 * Jika ada satu nilai saja pada sebuah tahun semester, maka dianggap
+	 * aktif pada semester tersebut.
+	 * @return kumpulan tahun semester di mana mahasiswa ini aktif
+	 */
+	public Set<TahunSemester> calculateTahunSemesterAktif() {
+		Set<TahunSemester> tahunSemesterAktif = new TreeSet<TahunSemester>();
+		List<Nilai> riwayatNilai = getRiwayatNilai();
+		for (Nilai nilai: riwayatNilai) {
+			tahunSemesterAktif.add(nilai.getTahunSemester());
+		}
+		return tahunSemesterAktif;
+	}
 	
 	/**
 	 * Memeriksa apakah mahasiswa ini sudah lulus mata kuliah tertentu. Kompleksitas O(n).

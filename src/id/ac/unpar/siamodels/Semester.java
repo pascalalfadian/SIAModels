@@ -1,7 +1,7 @@
 package id.ac.unpar.siamodels;
 
 public enum Semester {
-	PENDEK(0), GANJIL(1), GENAP(2);
+	UNKNOWN5(5), TRANSFER(6), PENDEK(10), GANJIL(20), GENAP(30);
 
 	public static Semester fromString(String text) {
 		return Semester.valueOf(text.toUpperCase());

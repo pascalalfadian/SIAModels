@@ -33,6 +33,14 @@ public final class TahunSemester implements Comparable<TahunSemester> {
 		case PENDEK:
 			kodeSemester = '4';
 			break;
+		case UNKNOWN5:
+			kodeSemester = '5';
+			break;
+		case TRANSFER:
+			kodeSemester = '6';
+			break;
+		default:
+			throw new InternalError("Incomplete TahunSemester switch case");
 		}
 		String kodeTahunSemester = ("" + tahun).substring(2, 4) + kodeSemester; 
 		validateKodeSemester(kodeTahunSemester);
@@ -44,6 +52,8 @@ public final class TahunSemester implements Comparable<TahunSemester> {
 		case '1': return Semester.GANJIL;
 		case '2': return Semester.GENAP;
 		case '4': return Semester.PENDEK;
+		case '5': return Semester.UNKNOWN5;
+		case '6': return Semester.TRANSFER;
 		}
 		return null;
 	}
@@ -53,11 +63,19 @@ public final class TahunSemester implements Comparable<TahunSemester> {
 	}
 	
 	private static void validateKodeSemester(String kodeTahunSemester) throws IllegalArgumentException {
-		if (!kodeTahunSemester.matches("[0-9][0-9][124]")) {
+		if (!kodeTahunSemester.matches("[0-9][0-9][12456]")) {
 			throw new IllegalArgumentException("Kode semester tidak valid: " + kodeTahunSemester);
 		}
 	}
 
+	/**
+	 * Mendapatkan kode tahun/semester sesuai aturan di DPS.
+	 * @return kode tahun/semester sesuai aturan di DPS.
+	 */
+	public String getKodeDPS() {
+		return kodeTahunSemester;
+	}
+	
 	@Override
 	public int compareTo(TahunSemester o) {
 		if (this.getTahun() < o.getTahun()) {
@@ -86,5 +104,7 @@ public final class TahunSemester implements Comparable<TahunSemester> {
 	@Override
 	public String toString() {
 		return "TahunSemester [" + getTahun() + "/" + getSemester() + "]";
-	}	
+	}
+	
+	
 }
