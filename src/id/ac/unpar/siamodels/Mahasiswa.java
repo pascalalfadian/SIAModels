@@ -65,11 +65,16 @@ public class Mahasiswa {
 				continue;
 			}
 			String kodeMK = nilai.getMataKuliah().getKode();
-			if (!nilaiTerbaik.containsKey(kodeMK)) {
-				totalSKS += nilai.getMataKuliah().getSKS();
-				nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().getSKS() * nilai.getAngkaAkhir());
-			} else if (nilai.getAngkaAkhir() > nilaiTerbaik.get(kodeMK)) {
-				nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().getSKS() * nilai.getAngkaAkhir());
+			Double angkaAkhir = nilai.getAngkaAkhir();
+			if (angkaAkhir != null) {
+				if (!nilaiTerbaik.containsKey(kodeMK)) {
+					totalSKS += nilai.getMataKuliah().getSKS();
+					nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().getSKS() * nilai.getAngkaAkhir());
+				} else if (nilai.getAngkaAkhir() > nilaiTerbaik.get(kodeMK)) {
+					nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().getSKS() * nilai.getAngkaAkhir());
+				}
+			} else {
+				// void: Nilai Akhir 'K' atau null
 			}
 		}
 		// Hitung IPK dari nilai-nilai terbaik
@@ -258,7 +263,7 @@ public class Mahasiswa {
 		}
 
 		/**
-		 * Mengembalikan nilai akhir dalam bentuk huruf (A, B, C, D, ...)
+		 * Mengembalikan nilai akhir dalam bentuk huruf (A, B, C, D, ..., atau K)
 		 * @return nilai akhir dalam huruf, atau null jika tidak ada.
 		 */
 		public Character getNilaiAkhir() {
@@ -267,7 +272,7 @@ public class Mahasiswa {
 		
 		/**
 		 * Mendapatkan nilai akhir dalam bentuk angka
-		 * @return nilai akhir dalam angka, atau null jika {@link #getNilaiAkhir() mengembalikan null}
+		 * @return nilai akhir dalam angka, atau null jika {@link #getNilaiAkhir() mengembalikan 'K' atau null}
 		 */
 		public Double getAngkaAkhir() {
 			if (nilaiAkhir == null) {
@@ -284,6 +289,8 @@ public class Mahasiswa {
 				return 1.0;
 			case 'E':
 				return 0.0;
+			case 'K':
+				return null;
 			}
 			return null;
 		}
