@@ -1,5 +1,8 @@
 package id.ac.unpar.siamodels.matakuliah;
 
-public class AIF101 {
+import id.ac.unpar.siamodels.MataKuliah;
+
+@MataKuliah(kode = "", nama = "", sks = 0)
+public class AIF101  {
 
 }

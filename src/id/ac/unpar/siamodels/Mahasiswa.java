@@ -64,14 +64,14 @@ public class Mahasiswa {
 			if (nilai.getNilaiAkhir() == null || nilai.getNilaiAkhir().equals('E')) {
 				continue;
 			}
-			String kodeMK = nilai.getMataKuliah().getKode();
+			String kodeMK = nilai.getMataKuliah().kode();
 			Double angkaAkhir = nilai.getAngkaAkhir();
 			if (angkaAkhir != null) {
 				if (!nilaiTerbaik.containsKey(kodeMK)) {
-					totalSKS += nilai.getMataKuliah().getSKS();
-					nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().getSKS() * nilai.getAngkaAkhir());
+					totalSKS += nilai.getMataKuliah().sks();
+					nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().sks() * nilai.getAngkaAkhir());
 				} else if (nilai.getAngkaAkhir() > nilaiTerbaik.get(kodeMK)) {
-					nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().getSKS() * nilai.getAngkaAkhir());
+					nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().sks() * nilai.getAngkaAkhir());
 				}
 			} else {
 				// void: Nilai Akhir 'K' atau null
@@ -107,8 +107,8 @@ public class Mahasiswa {
 			Nilai nilai = riwayatNilai.get(i);
 			if (nilai.tahunSemester.equals(tahunSemester)) {
 				if (nilai.getAngkaAkhir() != null) {
-					totalNilai += nilai.getMataKuliah().getSKS() * nilai.getAngkaAkhir();
-					totalSKS += nilai.getMataKuliah().getSKS();
+					totalNilai += nilai.getMataKuliah().sks() * nilai.getAngkaAkhir();
+					totalSKS += nilai.getMataKuliah().sks();
 				}
 			} else {
 				break;
@@ -135,9 +135,9 @@ public class Mahasiswa {
 			if (nilai.getNilaiAkhir() == null || nilai.getNilaiAkhir().equals('E')) {
 				continue;
 			}
-			String kodeMK = nilai.getMataKuliah().getKode();
+			String kodeMK = nilai.getMataKuliah().kode();
 			if (!sksTerhitung.contains(kodeMK)) {
-				totalSKS += nilai.getMataKuliah().getSKS();
+				totalSKS += nilai.getMataKuliah().sks();
 				sksTerhitung.add(kodeMK);
 			}			
 		}
@@ -163,13 +163,13 @@ public class Mahasiswa {
 	/**
 	 * Memeriksa apakah mahasiswa ini sudah lulus mata kuliah tertentu. Kompleksitas O(n).
 	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
-	 * Note: jika yang dimiliki adalah {@link MataKuliah}, gunakanlah {@link MataKuliah#getKode()}.
+	 * Note: jika yang dimiliki adalah {@link MataKuliah}, gunakanlah {@link MataKuliah#kode()}.
 	 * @param kodeMataKuliah kode mata kuliah yang ingin diperiksa kelulusannya.
 	 * @return true jika sudah pernah mengambil dan lulus, false jika belum
 	 */
 	public boolean hasLulusKuliah(String kodeMataKuliah) {
 		for (Nilai nilai: riwayatNilai) {
-			if (nilai.getMataKuliah().getKode().equals(kodeMataKuliah)) {
+			if (nilai.getMataKuliah().kode().equals(kodeMataKuliah)) {
 				Character na = nilai.getNilaiAkhir();
 				if (na != null && na >= 'A' && na <= 'D') {
 					return true;
@@ -182,13 +182,13 @@ public class Mahasiswa {
 	/**
 	 * Memeriksa apakah mahasiswa ini sudah pernah menempuh mata kuliah tertentu. Kompleksitas O(n).
 	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah ada isinya!
-	 * Note: jika yang dimiliki adalah {@link MataKuliah}, gunakanlah {@link MataKuliah#getKode()}.
+	 * Note: jika yang dimiliki adalah {@link MataKuliah}, gunakanlah {@link MataKuliah#kode()}.
 	 * @param kodeMataKuliah kode mata kuliah yang ingin diperiksa.
 	 * @return true jika sudah pernah mengambil, false jika belum
 	 */
 	public boolean hasTempuhKuliah(String kodeMataKuliah) {
 		for (Nilai nilai: riwayatNilai) {
-			if (nilai.getMataKuliah().getKode().equals(kodeMataKuliah)) {
+			if (nilai.getMataKuliah().kode().equals(kodeMataKuliah)) {
 				return true;
 			}
 		}
