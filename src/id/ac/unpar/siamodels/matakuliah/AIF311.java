@@ -7,7 +7,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
 
-@MataKuliah(kode = "", nama = "", sks = 0)
+@MataKuliah(kode = "AIF311", nama = "Pemrograman Fungsional", sks = 2)
 public class AIF311 implements HasPrasyarat, PilihanWajib {
 
 	@Override

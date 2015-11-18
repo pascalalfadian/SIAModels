@@ -7,7 +7,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
 
 import java.util.List;
 
-@MataKuliah(kode = "", nama = "", sks = 0)
+@MataKuliah(kode = "AIF438", nama = "Penambangan Data", sks = 3)
 public class AIF438 implements HasPrasyarat, Pilihan {
 
 	@Override

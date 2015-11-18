@@ -7,7 +7,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
-@MataKuliah(kode = "", nama = "", sks = 0)
+@MataKuliah(kode = "AIF302", nama = "Penulisan Ilmiah", sks = 2)
 public class AIF302 implements HasPrasyarat, Wajib {
 
 	@Override

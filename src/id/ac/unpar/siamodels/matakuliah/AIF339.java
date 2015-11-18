@@ -6,7 +6,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 
 import java.util.List;
 
-@MataKuliah(kode = "", nama = "", sks = 0)
+@MataKuliah(kode = "AIF339", nama = "Pemodelan Formal", sks = 3)
 public class AIF339 implements HasPrasyarat {
 
 	@Override
