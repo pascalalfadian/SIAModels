@@ -5,7 +5,20 @@ import java.util.logging.Logger;
 
 public class MataKuliahFactory {
 
+	/**
+	 * Lokasi package untuk daftar mata kuliah
+	 */
 	private static String DEFAULT_MATAKULIAH_PACKAGE = "id.ac.unpar.siamodels.matakuliah";
+	
+	/**
+	 * Menandakan jumlah SKS tidak diketahui.
+	 */
+	public static int UNKNOWN_SKS = Integer.MIN_VALUE;
+	
+	/**
+	 * Menandakan nama mata kuliah tidak diketahui.
+	 */
+	public static String UNKNOWN_NAMA = null;
 
 	/**
 	 * Membuat objek mata kuliah baru. Jika memungkinkan mengambil dari kelas
@@ -14,9 +27,9 @@ public class MataKuliahFactory {
 	 * @param kode
 	 *            kode mata kuliah
 	 * @param sks
-	 *            jumlah SKS
+	 *            jumlah SKS atau isi dengan {@link #UNKNOWN_SKS} jika tidak tahu.
 	 * @param nama
-	 *            nama mata kuliah
+	 *            nama mata kuliah atau isi dengan {@link #UNKNOWN_NAMA} jika tidak tahu.
 	 * @return objek mata kuliah
 	 * @throws IllegalStateException
 	 *             jika sks dan tidak sesuai dengan yang ada di kode
@@ -28,8 +41,8 @@ public class MataKuliahFactory {
 			mkClass = Class.forName(DEFAULT_MATAKULIAH_PACKAGE + "." + kode);
 			if (mkClass.isAnnotationPresent(MataKuliah.class)) {
 				MataKuliah matakuliah = (MataKuliah)mkClass.getAnnotation(MataKuliah.class);
-				if (matakuliah.sks() != sks) {
-					throw new IllegalStateException(String.format("SKS yang diberikan %d tidak sama dengan yang tercatat %d.", sks, matakuliah.sks()));
+				if (sks != UNKNOWN_SKS && matakuliah.sks() != sks) {
+					throw new IllegalStateException(String.format("SKS yang diberikan %d tidak sama dengan yang tercatat %d, dan bukan UNKNOWN_SKS.", sks, matakuliah.sks()));
 				}
 				return matakuliah;
 			} else {
