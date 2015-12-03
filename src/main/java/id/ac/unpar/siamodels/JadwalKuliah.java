@@ -10,8 +10,23 @@ public class JadwalKuliah {
 	protected LocalTime waktuMulai;
 	protected LocalTime waktuSelesai;
 	protected String lokasi;
-	protected Dosen pengajar;
+	protected String pengajar;
 
+	public JadwalKuliah(MataKuliah mataKuliah, char kelas, String pengajar, String hariString, String waktuString,
+			String lokasi) {
+		this.mataKuliah = mataKuliah;
+		this.kelas = kelas;
+		this.waktuMulai = LocalTime.parse(waktuString.substring(0, 5));
+		this.waktuSelesai = LocalTime.parse(waktuString.subSequence(6, 11));
+		this.lokasi = lokasi;
+		this.pengajar = pengajar;
+		this.hari = indonesianToDayOfWeek(hariString);
+	}
+
+	public JadwalKuliah() {
+		// void
+	}
+	
 	public MataKuliah getMataKuliah() {
 		return mataKuliah;
 	}
@@ -60,11 +75,41 @@ public class JadwalKuliah {
 		this.lokasi = lokasi;
 	}
 
-	public Dosen getPengajar() {
+	public String getNamaPengajar() {
 		return pengajar;
 	}
 
-	public void setPengajar(Dosen pengajar) {
-		this.pengajar = pengajar;
+	public void setNamaPengajar(String namaPengajar) {
+		this.pengajar = namaPengajar;
+	}
+
+	public String getWaktuString() {
+		return waktuMulai + "-" + waktuSelesai;
+	}
+
+	/**
+	 * Converts Indonesian day names to {@link DayOfWeek} enumeration.
+	 * @param indonesian the day name in Indonesian
+	 * @return {@link DayOfWeek} object or null if not found.
+	 */
+	public static DayOfWeek indonesianToDayOfWeek(String indonesian) {
+		switch (indonesian.toLowerCase()) {
+		case "senin":
+			return DayOfWeek.MONDAY;
+		case "selasa":
+			return DayOfWeek.TUESDAY;
+		case "rabu":
+			return DayOfWeek.WEDNESDAY;
+		case "kamis":
+			return DayOfWeek.THURSDAY;
+		case "jumat":
+			return DayOfWeek.FRIDAY;
+		case "sabtu":
+			return DayOfWeek.SATURDAY;
+		case "minggu":
+			return DayOfWeek.SUNDAY;
+		default:
+			return null;
+		}
 	}
 }

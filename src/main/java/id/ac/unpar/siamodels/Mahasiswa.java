@@ -15,6 +15,7 @@ public class Mahasiswa {
 	protected String nama;
 	protected final List<Nilai> riwayatNilai;
 	protected URL photoURL;
+	protected List<JadwalKuliah> jadwalKuliahList;
 	
 	public Mahasiswa(String npm) throws NumberFormatException {
 		super();
@@ -43,6 +44,14 @@ public class Mahasiswa {
 
 	public void setPhotoURL(URL photoURL) {
 		this.photoURL = photoURL;
+	}
+	
+	public List<JadwalKuliah> getJadwalKuliahList() {
+		return jadwalKuliahList;
+	}
+
+	public void setJadwalKuliahList(List<JadwalKuliah> jadwalKuliahList) {
+		this.jadwalKuliahList = jadwalKuliahList;
 	}
 
 	public String getEmailAddress() {
