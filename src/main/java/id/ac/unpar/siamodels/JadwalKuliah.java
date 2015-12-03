@@ -12,12 +12,21 @@ public class JadwalKuliah {
 	protected String lokasi;
 	protected String pengajar;
 
-	public JadwalKuliah(MataKuliah mataKuliah, char kelas, String pengajar, String hariString, String waktuString,
+	/**
+	 * Membuat jadwal kuliah baru
+	 * @param mataKuliah mata kuliah yang dibuat jadwalnya
+	 * @param kelas kelas (A, B, ...)
+	 * @param pengajar nama pengajar
+	 * @param hariString hari pertemuan dalam bahasa Indonesia (Senin, Selasa, ...)
+	 * @param waktuString waktu pertemuan (HH.MM-HH.MM atau HH:MM-HH:MM)
+	 * @param lokasi lokasi pertemuan
+	 */
+	public JadwalKuliah(MataKuliah mataKuliah, Character kelas, String pengajar, String hariString, String waktuString,
 			String lokasi) {
 		this.mataKuliah = mataKuliah;
 		this.kelas = kelas;
-		this.waktuMulai = LocalTime.parse(waktuString.substring(0, 5));
-		this.waktuSelesai = LocalTime.parse(waktuString.subSequence(6, 11));
+		this.waktuMulai = LocalTime.parse(waktuString.substring(0, 5).replace('.', ':'));
+		this.waktuSelesai = LocalTime.parse(waktuString.substring(6, 11).replace('.',':'));
 		this.lokasi = lokasi;
 		this.pengajar = pengajar;
 		this.hari = indonesianToDayOfWeek(hariString);
@@ -90,7 +99,8 @@ public class JadwalKuliah {
 	/**
 	 * Converts Indonesian day names to {@link DayOfWeek} enumeration.
 	 * @param indonesian the day name in Indonesian
-	 * @return {@link DayOfWeek} object or null if not found.
+	 * @return {@link DayOfWeek} object
+	 * @throws IllegalArgumentException jika tidak dikenali
 	 */
 	public static DayOfWeek indonesianToDayOfWeek(String indonesian) {
 		switch (indonesian.toLowerCase()) {
@@ -109,7 +119,7 @@ public class JadwalKuliah {
 		case "minggu":
 			return DayOfWeek.SUNDAY;
 		default:
-			return null;
+			throw new IllegalArgumentException("Hari dalam bahasa Indonesia tidak dikenali: " + indonesian);
 		}
 	}
 }

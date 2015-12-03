@@ -93,8 +93,8 @@ public class MataKuliahFactory {
 				MataKuliah staticMatakuliah = (MataKuliah) mkClass.getAnnotation(MataKuliah.class);
 				if (sks != UNKNOWN_SKS && staticMatakuliah.sks() != sks) {
 					throw new IllegalStateException(String.format(
-							"SKS yang diberikan %d tidak sama dengan yang tercatat %d, dan bukan UNKNOWN_SKS.", sks,
-							staticMatakuliah.sks()));
+							"SKS yang diberikan %d tidak sama dengan yang tercatat %d, dan bukan UNKNOWN_SKS, untuk mata kuliah %s", sks,
+							staticMatakuliah.sks(), kode));
 				}
 				mataKuliahCache.put(kode, staticMatakuliah);
 				return staticMatakuliah;
