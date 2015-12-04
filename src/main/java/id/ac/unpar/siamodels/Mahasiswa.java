@@ -140,13 +140,9 @@ public class Mahasiswa {
 	 * Menghitung jumlah SKS lulus mahasiswa saat ini.
 	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
 	 * @return SKS Lulus
-	 * @throws ArrayIndexOutOfBoundsException jika tidak ada nilai
 	 */
 	public int calculateSKSLulus() throws ArrayIndexOutOfBoundsException {
 		List<Nilai> riwayatNilai = getRiwayatNilai();
-		if (riwayatNilai.size() == 0) {
-			throw new ArrayIndexOutOfBoundsException("Minimal harus ada satu nilai untuk menghitung SKS Lulus");
-		}		
 		Set<String> sksTerhitung = new HashSet<String>();
 		int totalSKS = 0;
 		// Tambahkan SKS setiap kuliah

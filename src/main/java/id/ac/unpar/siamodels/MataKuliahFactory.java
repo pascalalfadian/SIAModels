@@ -93,16 +93,16 @@ public class MataKuliahFactory {
 				MataKuliah staticMatakuliah = (MataKuliah) mkClass.getAnnotation(MataKuliah.class);
 				if (sks != UNKNOWN_SKS && staticMatakuliah.sks() != sks) {
 					throw new IllegalStateException(String.format(
-							"SKS yang diberikan %d tidak sama dengan yang tercatat %d, dan bukan UNKNOWN_SKS.", sks,
-							staticMatakuliah.sks()));
+							"SKS yang diberikan %d tidak sama dengan yang tercatat %d, dan bukan UNKNOWN_SKS untuk mata kuliah %s-%d %s.", sks,
+							staticMatakuliah.sks(), kode, sks, nama));
 				}
 				mataKuliahCache.put(kode, staticMatakuliah);
 				return staticMatakuliah;
 			} else {
-				Logger.getGlobal().warning("Class is listed but not annotated: " + kode);
+				Logger.getGlobal().warning("Class is listed but not annotated: " + String.format("%s-%d %s", kode, sks, nama));
 			}
 		} catch (ClassNotFoundException e) {
-			Logger.getGlobal().warning("Class is not listed: " + kode);
+			Logger.getGlobal().warning("Class is not listed: " + String.format("%s-%d %s", kode, sks, nama));
 		}
 		
 		// Tidak ditemukan, buat baru
