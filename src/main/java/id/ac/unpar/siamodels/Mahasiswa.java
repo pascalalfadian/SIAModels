@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -13,6 +14,8 @@ public class Mahasiswa {
 	protected final String npm;
 	protected String nama;
 	protected final List<Nilai> riwayatNilai;
+	protected URL photoURL;
+	protected List<JadwalKuliah> jadwalKuliahList;
 	
 	public Mahasiswa(String npm) throws NumberFormatException {
 		super();
@@ -33,6 +36,22 @@ public class Mahasiswa {
 
 	public String getNpm() {
 		return npm;
+	}
+	
+	public URL getPhotoURL() {
+		return photoURL;
+	}
+
+	public void setPhotoURL(URL photoURL) {
+		this.photoURL = photoURL;
+	}
+	
+	public List<JadwalKuliah> getJadwalKuliahList() {
+		return jadwalKuliahList;
+	}
+
+	public void setJadwalKuliahList(List<JadwalKuliah> jadwalKuliahList) {
+		this.jadwalKuliahList = jadwalKuliahList;
 	}
 
 	public String getEmailAddress() {
