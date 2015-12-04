@@ -12,12 +12,21 @@ public class JadwalKuliah {
 	protected String lokasi;
 	protected String pengajar;
 
-	public JadwalKuliah(MataKuliah mataKuliah, char kelas, String pengajar, String hariString, String waktuString,
+	/**
+	 * Membuat jadwal kuliah baru
+	 * @param mataKuliah mata kuliah yang dibuat jadwalnya
+	 * @param kelas kelas kuliah atau null jika tidak tersedia
+	 * @param pengajar nama pengajar
+	 * @param hariString hari dalam Bahasa Indonesia (Senin, Selasa, ...)
+	 * @param waktuString rentang waktu kuliah (08.00-09.00 atau 08:00-09:00)
+	 * @param lokasi kode ruangan
+	 */
+	public JadwalKuliah(MataKuliah mataKuliah, Character kelas, String pengajar, String hariString, String waktuString,
 			String lokasi) {
 		this.mataKuliah = mataKuliah;
 		this.kelas = kelas;
-		this.waktuMulai = LocalTime.parse(waktuString.substring(0, 5));
-		this.waktuSelesai = LocalTime.parse(waktuString.subSequence(6, 11));
+		this.waktuMulai = LocalTime.parse(waktuString.substring(0, 5).replace('.', ':'));
+		this.waktuSelesai = LocalTime.parse(waktuString.substring(6, 11).replace('.', ':'));
 		this.lokasi = lokasi;
 		this.pengajar = pengajar;
 		this.hari = indonesianToDayOfWeek(hariString);
