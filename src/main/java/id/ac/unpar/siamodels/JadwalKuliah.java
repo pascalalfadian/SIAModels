@@ -10,7 +10,7 @@ public class JadwalKuliah {
 	protected LocalTime waktuMulai;
 	protected LocalTime waktuSelesai;
 	protected String lokasi;
-	protected String pengajar;
+	protected Dosen pengajar;
 
 	/**
 	 * Membuat jadwal kuliah baru
@@ -21,7 +21,7 @@ public class JadwalKuliah {
 	 * @param waktuString rentang waktu kuliah (08.00-09.00 atau 08:00-09:00)
 	 * @param lokasi kode ruangan
 	 */
-	public JadwalKuliah(MataKuliah mataKuliah, Character kelas, String pengajar, String hariString, String waktuString,
+	public JadwalKuliah(MataKuliah mataKuliah, Character kelas, Dosen pengajar, String hariString, String waktuString,
 			String lokasi) {
 		this.mataKuliah = mataKuliah;
 		this.kelas = kelas;
@@ -84,12 +84,12 @@ public class JadwalKuliah {
 		this.lokasi = lokasi;
 	}
 
-	public String getNamaPengajar() {
+	public Dosen getPengajar() {
 		return pengajar;
 	}
 
-	public void setNamaPengajar(String namaPengajar) {
-		this.pengajar = namaPengajar;
+	public void setPengajar(Dosen pengajar) {
+		this.pengajar = pengajar;
 	}
 
 	public String getWaktuString() {
