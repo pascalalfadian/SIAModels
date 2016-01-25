@@ -72,6 +72,20 @@ public class Mahasiswa {
 	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum mengambil satu kuliah pun.
 	 */
 	public double calculateIPKLulus() throws ArrayIndexOutOfBoundsException {
+		return calculateIPKTempuh(true);
+	}
+
+	/**
+	 * Menghitung IPK mahasiswa sampai saat ini, dengan aturan:
+	 * <ul>
+	 *   <li>Perhitungan kuliah yang tidak lulus ditentukan parameter
+	 *   <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
+	 * </ul>
+	 * @param lulusSaja set true jika ingin membuang mata kuliah tidak lulus 
+	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
+	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum mengambil satu kuliah pun.
+	 */
+	public double calculateIPKTempuh(boolean lulusSaja) throws ArrayIndexOutOfBoundsException {
 		List<Nilai> riwayatNilai = getRiwayatNilai();
 		if (riwayatNilai.size() == 0) {
 			return Double.NaN;
@@ -80,20 +94,20 @@ public class Mahasiswa {
 		int totalSKS = 0;
 		// Cari nilai lulus terbaik setiap kuliah
 		for (Nilai nilai: riwayatNilai) {
-			if (nilai.getNilaiAkhir() == null || nilai.getNilaiAkhir().equals('E')) {
+			if (nilai.getNilaiAkhir() == null) {
+				continue;
+			}
+			if (lulusSaja && nilai.getNilaiAkhir().equals('E')) {
 				continue;
 			}
 			String kodeMK = nilai.getMataKuliah().kode();
 			Double angkaAkhir = nilai.getAngkaAkhir();
-			if (angkaAkhir != null) {
-				if (!nilaiTerbaik.containsKey(kodeMK)) {
-					totalSKS += nilai.getMataKuliah().sks();
-					nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().sks() * nilai.getAngkaAkhir());
-				} else if (nilai.getAngkaAkhir() > nilaiTerbaik.get(kodeMK)) {
-					nilaiTerbaik.put(kodeMK, nilai.getMataKuliah().sks() * nilai.getAngkaAkhir());
-				}
-			} else {
-				// void: Nilai Akhir 'K' atau null
+			int sks = nilai.getMataKuliah().sks();
+			if (!nilaiTerbaik.containsKey(kodeMK)) {
+				totalSKS += sks;
+				nilaiTerbaik.put(kodeMK, sks * angkaAkhir);
+			} else if (sks * angkaAkhir > nilaiTerbaik.get(kodeMK)) {
+				nilaiTerbaik.put(kodeMK, sks * angkaAkhir);
 			}
 		}
 		// Hitung IPK dari nilai-nilai terbaik
@@ -103,6 +117,7 @@ public class Mahasiswa {
 		}
 		return totalNilai / totalSKS;
 	}
+
 	
 	/**
 	 * Menghitung IPS semester terakhir sampai saat ini, dengan aturan:
@@ -142,12 +157,25 @@ public class Mahasiswa {
 	 * @return SKS Lulus
 	 */
 	public int calculateSKSLulus() throws ArrayIndexOutOfBoundsException {
+		return calculateSKSTempuh(true);
+	}
+	
+	/**
+	 * Menghitung jumlah SKS tempuh mahasiswa saat ini.
+	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
+	 * @param lulusSaja set true jika ingin membuang SKS tidak lulus
+	 * @return SKS tempuh
+	 */
+	public int calculateSKSTempuh(boolean lulusSaja) throws ArrayIndexOutOfBoundsException {
 		List<Nilai> riwayatNilai = getRiwayatNilai();
 		Set<String> sksTerhitung = new HashSet<String>();
 		int totalSKS = 0;
 		// Tambahkan SKS setiap kuliah
 		for (Nilai nilai: riwayatNilai) {
-			if (nilai.getNilaiAkhir() == null || nilai.getNilaiAkhir().equals('E')) {
+			if (nilai.getNilaiAkhir() == null) {
+				continue;
+			}
+			if (lulusSaja && nilai.getNilaiAkhir().equals('E')) {
 				continue;
 			}
 			String kodeMK = nilai.getMataKuliah().kode();
