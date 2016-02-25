@@ -1,7 +1,5 @@
 package id.ac.unpar.siamodels.matakuliah;
 
-import id.ac.unpar.siamodels.Mahasiswa;
-import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
 
@@ -20,5 +18,16 @@ public class AIF457 implements HasPrasyarat, Pilihan {
 		}
 		return ok;
 	}
+        
+        /**
+         * @author Veronica S. Moertini (moertini@unpar.ac.id)
+         * @return 
+         */
+        public String getDeskripsi(){
+            return "Mata kuliah ini: Memperkenalkan konsep kewirausahaan dengan memanfaatkan teknologi, khususnya teknologi informasi,"
+                    + " sebagai basis usaha dan inovasi produk/jasa; Mempelajari teknik mencari peluang dan merumuskan bidang usaha"
+                    + " spesifik yang akan diterjuni; Mempelajari konsep manajemen pemasaran, keuangan dan SDM dalam kaitannya dengan"
+                    + " berwira-usaha di bidang TI; Menyusun proposal bisnis untuk berwira-usaha di bidang TI dan mempresentasikannya.";
+        }
 
 }

@@ -1,6 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah.interfaces;
 
-import id.ac.unpar.siamodels.Mahasiswa;
+import id.ac.unpar.siamodels.matakuliah.Mahasiswa;
 
 import java.util.List;
 

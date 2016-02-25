@@ -1,7 +1,5 @@
 package id.ac.unpar.siamodels.matakuliah;
 
-import id.ac.unpar.siamodels.Mahasiswa;
-import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
 
@@ -23,5 +21,15 @@ public class AIF469 implements HasPrasyarat, Pilihan {
 		}
 		return ok;
 	}
-
+        
+        /**
+         * @author Pascal (pascal@unpar.ac.id)
+         * @return deskripsi mata kuliah
+         */
+        public String getDeskripsi(){
+            return "Mata kuliah ini mengajarkan kepada mahasiswa teknik-teknik untuk membuat layanan berbasis web."
+                    + " Mahasiswa diperkenalkan dengan standar-standar seperti HTTP, XML, JSON dan diajarkan untuk memanfaatkannya"
+                    + " dalam membuat maupun menggunakan layanan pihak ketiga. Dalam kuliah ini, juga akan diperkenalkan minimal satu"
+                    + " layanan pihak ketiga yang dapat dimanfaatkan mahasiswa, seperti Google Places Web Service.";
+        }
 }

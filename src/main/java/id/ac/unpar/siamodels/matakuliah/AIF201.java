@@ -1,15 +1,33 @@
 package id.ac.unpar.siamodels.matakuliah;
 
-import id.ac.unpar.siamodels.Mahasiswa;
-import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
+import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
+import id.ac.unpar.siamodels.matakuliah.interfaces.HasResponsi;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
 @MataKuliah(kode = "AIF201", nama = "Analisis & Desain Berorientasi Objek", sks = 4)
-public class AIF201 implements HasPrasyarat, Wajib {
+public class AIF201 implements HasPrasyarat, Wajib, HasPraktikum, HasResponsi {
 
+    /**
+     * @author Pascal
+     * @return deskripsi mata kuliah
+     */
+    public String getDeskripsi(){
+        return "Mata kuliah ini memperkenalkan prinsip-prinsip yang digunakan "
+                + "dalam melakukan analisa serta desain prorgram berorientasi "
+                + "objek. Di samping itu, mahasiswa juga belajar menggunakan "
+                + "kakas berupa diagram UML (Unified Modelling Language) "
+                + "sehingga dapat mengkomunikasikan desain secara visual. "
+                + "Mahasiswa juga akan mengenal beberapa software design "
+                + "pattern dari Gang of Four. Terakhir, mahasiswa akan belajar "
+                + "mengenai konsep MVC (Model-View-Controller) yang menjadi "
+                + "dasar dari banyak framework masa kini.\n Bahasa yang "
+                + "digunakan adalah bahasa Java, namun diusahakan tetap umum "
+                + "sehingga dapat diaplikasikan pada bahasa yang lain.";
+    }
+    
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
 		boolean ok = true;

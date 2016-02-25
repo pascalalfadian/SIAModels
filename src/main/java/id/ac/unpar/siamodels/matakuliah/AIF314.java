@@ -1,14 +1,13 @@
 package id.ac.unpar.siamodels.matakuliah;
 
-import id.ac.unpar.siamodels.Mahasiswa;
-import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
 
 @MataKuliah(kode = "AIF314", nama = "Pemrograman Basis Data", sks = 2)
-public class AIF314 implements HasPrasyarat, PilihanWajib {
+public class AIF314 implements HasPrasyarat, PilihanWajib,HasPraktikum {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
@@ -17,6 +16,15 @@ public class AIF314 implements HasPrasyarat, PilihanWajib {
 			return false;
 		}
 		return true;
-	}
+        }
+        
+        /**
+         * @author Falahah . S.
+         * @return deskripsi mata kuliah
+         */
+        public String getDeskripsi(){
+            return "Kuliah ini merupakan kelanjutan dari kuliah Manajemen Informasi Basisdata. "
+                +  "\"Pada perkuliahan ini, mahasiswa akan mempelajari teknik-teknik pengelolaan basis data dan membuat program dengan basis data yang optimal/efisien";
+        }
 
 }

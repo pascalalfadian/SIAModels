@@ -1,15 +1,27 @@
 package id.ac.unpar.siamodels.matakuliah;
 
-import id.ac.unpar.siamodels.Mahasiswa;
-import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
+import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
 @MataKuliah(kode = "AIF204", nama = "Manajemen Informasi dan Basis Data", sks = 4)
-public class AIF204 implements HasPrasyarat, Wajib {
+public class AIF204 implements HasPrasyarat, Wajib, HasPraktikum {
 
+    /**
+     * @author Veronica S. Moertini
+     * @return deskripsi mata kuliah
+     */
+    public String getDeskripsi(){
+        return "Mata kuliah ini memperkenalkan konsep dan arsitektur DBMS, "
+                + "mengajarkan aljabar relasional dan SQL serta pemanfaatannya "
+                + "pada pemrograman kueri sederhana s/d relatif kompleks. "
+                + "Selain itu, mata kuliah ini juga mengajarkan dan "
+                + "mempraktekkan perancangan basisdata untuk masalah sederhana "
+                + "(lingkup kecil) termasuk pengembangan program aplikasinya;";
+    }
+    
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
 		boolean ok = true;
