@@ -1,6 +1,7 @@
 package id.ac.unpar.siamodels;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.TreeSet;
 
 public class Mahasiswa {
@@ -16,6 +18,7 @@ public class Mahasiswa {
 	protected final List<Nilai> riwayatNilai;
 	protected URL photoURL;
 	protected List<JadwalKuliah> jadwalKuliahList;
+	protected SortedMap<LocalDate, Integer> nilaiTOEFL;
 	
 	public Mahasiswa(String npm) throws NumberFormatException {
 		super();
@@ -60,6 +63,14 @@ public class Mahasiswa {
 	
 	public List<Nilai> getRiwayatNilai() {
 		return riwayatNilai;
+	}
+	
+	public SortedMap<LocalDate, Integer> getNilaiTOEFL(){
+		return nilaiTOEFL;
+	}
+	
+	public void setNilaiTOEFL(SortedMap<LocalDate, Integer> nilaiTOEFL){
+		this.nilaiTOEFL = nilaiTOEFL;
 	}
 
 	/**
