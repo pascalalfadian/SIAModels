@@ -8,23 +8,17 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
+/**
+ * Mata kuliah ini memperkenalkan kepada mahasiswa beberapa algoritma dan 
+ * struktur data, alternatif cara implementasinya, dan analisis kompleksitas 
+ * waktunya. Mahasiswa diberikan beberapa masalah komputasi yang harus 
+ * diselesaikan dengan menggunakan algoritma atau struktur data yang sudah 
+ * diperkenalkan dan mengimplementasikannya dalam bahasa pemrograman Java.
+ * @author Joanna Helga, M.Sc. (joanna@unpar.ac.id)
+ */
 @MataKuliah(kode = "AIF202", nama = "Desain & Analisis Algoritma", sks = 4)
 public class AIF202 implements HasPrasyarat, Wajib, HasResponsi, HasPraktikum {
 
-    /**
-     * @author Joanna Helga
-     * @return deskripsi mata kuliah
-     */
-    public String getDeskripsi(){
-        return "Mata kuliah ini memperkenalkan kepada mahasiswa beberapa "
-                + "algoritma dan struktur data, alternatif cara implementasinya,"
-                + " dan analisis kompleksitas waktunya. Mahasiswa diberikan "
-                + "beberapa masalah komputasi yang harus diselesaikan dengan "
-                + "menggunakan algoritma atau struktur data yang sudah "
-                + "diperkenalkan dan mengimplementasikannya dalam bahasa "
-                + "pemrograman Java.";
-    }
-    
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
 		boolean ok = true;

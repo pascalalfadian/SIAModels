@@ -5,18 +5,16 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
+/**
+ * Mata kuliah ini memperkenalkan kepada mahasiswa mengenai konsep sistem 
+ * operasi, jenis-jenis sistem operasi yang digunakan dalam kehidupan 
+ * sehari-hari dan beberapa perangkat keras yang dibutuhkan pada komputer. 
+ * Selain itu juga mempelajari mengenai teknik dan algoritma yang digunakan 
+ * dalam pengelolaan sistem operasi.
+ * @author Chandra Wijaya (chandraw@unpar.ac.id)
+ */
 @MataKuliah(kode = "AIF206", nama = "Sistem Operasi", sks = 4)
 public class AIF206 implements HasPrasyarat, Wajib {
-
-    /**
-     * @author Chandra Wijaya
-     * @return deskripsi mata kuliah
-     */
-    public String getDeskripsi() {
-        return "Mata kuliah ini memperkenalkan kepada mahasiswa mengenai konsep sistem operasi, "
-                + "jenis-jenis sistem operasi yang digunakan dalam kehidupan sehari-hari dan beberapa perangkat keras yang dibutuhkan pada komputer."
-                + " Selain itu juga mempelajari mengenai teknik dan algoritma yang digunakan dalam pengelolaan sistem operasi.";
-    }
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
