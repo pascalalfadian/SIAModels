@@ -4,10 +4,14 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
+
 /**
- * Mempelajari Konsep Data, Informasi, Pengetahuan, Sistem Informasi, proses dan pemodelan bisnis, jenis-jenis sistem informasi, untuk mendukung pengambilan keputusan. 
- * Mempelajari trend Teknologi Informasi, tahap-tahap pembangunan sistem informasi.
- * Mempelajari pengantar : EIS, e-bisnis/e-commerce, Business Intelligence, Cloud Computing dan Mobile Applications
+ * Mempelajari Konsep Data, Informasi, Pengetahuan, Sistem Informasi, proses dan
+ * pemodelan bisnis, jenis-jenis sistem informasi, untuk mendukung pengambilan
+ * keputusan. Mempelajari trend Teknologi Informasi, tahap-tahap pembangunan
+ * sistem informasi. Mempelajari pengantar : EIS, e-bisnis/e-commerce, Business
+ * Intelligence, Cloud Computing dan Mobile Applications
+ *
  * @author Rosa de Lima E. Padmowati (rosad5@unpar.ac.id)
  */
 

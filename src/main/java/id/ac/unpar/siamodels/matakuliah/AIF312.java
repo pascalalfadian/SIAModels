@@ -5,10 +5,13 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
+
 /**
- * Mata kuliah ini memberikan pengetahuan awal tentang keamanan informasi. 
- * Pada beberapa pertemuan awal, dibahas keamanan informasi secara matematis, 
- * yaitu di materi-materi seputar kriptografi dan serangannya. Lalu, dibahas pula konsep keamanan informasi pada jaringan komputer dan pada software.
+ * Mata kuliah ini memberikan pengetahuan awal tentang keamanan informasi. Pada
+ * beberapa pertemuan awal, dibahas keamanan informasi secara matematis, yaitu
+ * di materi-materi seputar kriptografi dan serangannya. Lalu, dibahas pula
+ * konsep keamanan informasi pada jaringan komputer dan pada software.
+ *
  * @author Mariskha Tri Adithia (mariskha@unpar.ac.id)
  */
 

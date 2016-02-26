@@ -4,23 +4,25 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
+
 /**
- * Mata kuliah ini melatih mahasiswa dalam menulis ilmiah 
- * serta memperkenalkan metodologi penelitian serta kakas untuk menulis ilmiah.
+ * Mata kuliah ini melatih mahasiswa dalam menulis ilmiah serta memperkenalkan
+ * metodologi penelitian serta kakas untuk menulis ilmiah.
+ *
  * @author Thomas Anung Basuki (anung@unpar.ac.id)
  */
 
 @MataKuliah(kode = "AIF302", nama = "Penulisan Ilmiah", sks = 2)
 public class AIF302 implements HasPrasyarat, Wajib {
 
-	@Override
-	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
-		int sksLulus = mahasiswa.calculateSKSLulus();
-		if (sksLulus < 84) {
-			reasonsContainer.add("SKS Lulus " + sksLulus + ", belum mencapai syarat minimal 84");			
-			return false;
-		}
-		return true;
-	}
+    @Override
+    public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
+        int sksLulus = mahasiswa.calculateSKSLulus();
+        if (sksLulus < 84) {
+            reasonsContainer.add("SKS Lulus " + sksLulus + ", belum mencapai syarat minimal 84");
+            return false;
+        }
+        return true;
+    }
 
 }

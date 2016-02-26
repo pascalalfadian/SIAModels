@@ -5,11 +5,14 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
+
 /**
- * Kuliah Pemrograman Fungsional bertujuan untuk:
- * 1. memperkenalkan paradigma pemrograman fungsional, 
- * yaitu sebuah pemrograman yang didasarkan pada konsep pemetaan dan fungsi matematika. Penyelesaian suatu masalah didasari atas aplikasi dari fungsi-fungsi tersebut.
- * 2. memberikan dasar-dasar pemrograman fungsional dengan menggunakan bahasa fungsional Haskell.
+ * Kuliah Pemrograman Fungsional bertujuan untuk: 1. memperkenalkan paradigma
+ * pemrograman fungsional, yaitu sebuah pemrograman yang didasarkan pada konsep
+ * pemetaan dan fungsi matematika. Penyelesaian suatu masalah didasari atas
+ * aplikasi dari fungsi-fungsi tersebut. 2. memberikan dasar-dasar pemrograman
+ * fungsional dengan menggunakan bahasa fungsional Haskell.
+ *
  * @author Cecilia E. Nugraheni (cheni@unpar.ac.id)
  */
 

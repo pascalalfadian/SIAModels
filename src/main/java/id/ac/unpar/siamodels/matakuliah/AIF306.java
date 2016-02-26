@@ -4,10 +4,16 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Projek;
 
 import java.util.List;
+
 /**
- * Mata kuliah ini bertujuan untuk memberikan pengalaman bagi mahasiswa dalam mengerjakan proyek dengan teknologi-teknologi terkini, secara berkelompok.
- * Teknologi-teknologi yang digunakan pada kuliah ini tidak spesifik dan dapat berubah seiring perkembangan teknologi maupun disesuaikan dengan kompetensi dosen pengajar. Beberapa teknologi yang dapat dimanfaatkan antara lain: DVCS tool menggunakan Git + Github, Mobile native app (Android, iOS, dll), 
- * dan responsive web design.
+ * Mata kuliah ini bertujuan untuk memberikan pengalaman bagi mahasiswa dalam
+ * mengerjakan proyek dengan teknologi-teknologi terkini, secara berkelompok.
+ * Teknologi-teknologi yang digunakan pada kuliah ini tidak spesifik dan dapat
+ * berubah seiring perkembangan teknologi maupun disesuaikan dengan kompetensi
+ * dosen pengajar. Beberapa teknologi yang dapat dimanfaatkan antara lain: DVCS
+ * tool menggunakan Git + Github, Mobile native app (Android, iOS, dll), dan
+ * responsive web design.
+ *
  * @author FPascal (pascal@unpar.ac.id)
  */
 

@@ -5,32 +5,33 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
+
 /**
- * Kuliah ini merupakan kelanjutan dari kuliah Manajemen Informasi Basisdata. 
- * Pada perkuliahan ini, mahasiswa akan mempelajari teknik-teknik pengelolaan 
+ * Kuliah ini merupakan kelanjutan dari kuliah Manajemen Informasi Basisdata.
+ * Pada perkuliahan ini, mahasiswa akan mempelajari teknik-teknik pengelolaan
  * basis data dan membuat program dengan basis data yang optimal/efisien.
+ *
  * @author Falahah . S.
  */
-
 @MataKuliah(kode = "AIF314", nama = "Pemrograman Basis Data", sks = 2)
-public class AIF314 implements HasPrasyarat, PilihanWajib,HasPraktikum {
+public class AIF314 implements HasPrasyarat, PilihanWajib, HasPraktikum {
 
-	@Override
-	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
-		if (!mahasiswa.hasTempuhKuliah("AIF204") && !mahasiswa.hasTempuhKuliah("AIF294")) {
-			reasonsContainer.add("Tidak memenuhi prasyarat tempuh AIF204 atau AIF294");
-			return false;
-		}
-		return true;
+    @Override
+    public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
+        if (!mahasiswa.hasTempuhKuliah("AIF204") && !mahasiswa.hasTempuhKuliah("AIF294")) {
+            reasonsContainer.add("Tidak memenuhi prasyarat tempuh AIF204 atau AIF294");
+            return false;
         }
-        
-        /**
-         * @author Falahah . S.
-         * @return deskripsi mata kuliah
-         */
-        public String getDeskripsi(){
-            return "Kuliah ini merupakan kelanjutan dari kuliah Manajemen Informasi Basisdata. "
-                +  "\"Pada perkuliahan ini, mahasiswa akan mempelajari teknik-teknik pengelolaan basis data dan membuat program dengan basis data yang optimal/efisien";
-        }
+        return true;
+    }
+
+    /**
+     * @author Falahah . S.
+     * @return deskripsi mata kuliah
+     */
+    public String getDeskripsi() {
+        return "Kuliah ini merupakan kelanjutan dari kuliah Manajemen Informasi Basisdata. "
+                + "\"Pada perkuliahan ini, mahasiswa akan mempelajari teknik-teknik pengelolaan basis data dan membuat program dengan basis data yang optimal/efisien";
+    }
 
 }
