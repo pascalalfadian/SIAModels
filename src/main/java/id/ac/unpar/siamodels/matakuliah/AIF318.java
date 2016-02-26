@@ -5,7 +5,15 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
-
+/**
+ * Mata kuliah ini memperkenalkan konsep perangkat mobile dan pemrograman pada perangkat 
+ * mobile. Pemrograman dikhususkan pada lingkungan J2ME dan Android.
+ * Untuk meningkatkan keterampilan pemrograman dilengkapi dengan praktikum. 
+ * Sedangkan untuk mendapatkan pengalaman penerapan konsep diberikan tugas implementasi suatu 
+ * kasus pada lingkungan mobile-cloud dengan kasus yang sudah ditentukan.
+ *   
+ * @author Gede Karya (gkarya@unpar.ac.id)
+ */
 @MataKuliah(kode = "AIF318", nama = "Pemrograman Aplikasi Bergerak", sks = 2)
 public class AIF318 implements HasPrasyarat, PilihanWajib,HasPraktikum {
 
@@ -22,15 +30,4 @@ public class AIF318 implements HasPrasyarat, PilihanWajib,HasPraktikum {
 		}
 		return ok;
 	}
-        /**
-         * @author Gede Karya (gkarya@unpar.ac.id)
-         * @return deskripsi mata kuliah
-         */
-        public String getDeskripsi(){
-            return "Mata kuliah ini memperkenalkan konsep perangkat mobile dan pemrograman pada perangkat mobile. Pemrograman dikhususkan pada lingkungan J2ME dan Android."
-                    + " Untuk meningkatkan keterampilan pemrograman dilengkapi dengan praktikum. "
-                    + "Sedangkan untuk mendapatkan pengalaman penerapan konsep diberikan tugas implementasi suatu kasus pada lingkungan mobile-cloud dengan kasus yang sudah ditentukan.   ";
-            
-        }
-
 }

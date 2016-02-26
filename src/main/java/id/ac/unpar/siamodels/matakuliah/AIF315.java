@@ -6,6 +6,14 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
 
+/**
+ * Mata kuliah ini memperkenalkan konsep dan lingkungan pemrograman berbasis web,
+ * kemudian belajar membuat aplikasi berbasis web menggunakan HTML5, CSS, Java Script 
+ * dan PHP. Untuk meningkatkan keterampilan pemrograman dilengkapi dengan praktikum. 
+ * Sedangkan untuk mendapatkan pengalaman penerapan konsep diberikan tugas besar membuat 
+ * program berbasis web dengan kasus yang ditentukan oleh mahasiswa.
+ * @authors Gede Karya(gkarya@unpar.ac.id), Husnul Hakim(husnulhakim@unpar.ac.id).
+ */
 @MataKuliah(kode = "AIF315", nama = "Pemrograman Berbasis Web", sks = 2)
 public class AIF315 implements HasPrasyarat, PilihanWajib, HasPraktikum {
 
@@ -17,14 +25,4 @@ public class AIF315 implements HasPrasyarat, PilihanWajib, HasPraktikum {
 		}
 		return true;
 	}
-        /**
-         * @authors Gede Karya (gkarya@unpar.ac.id),
-         * Husnul Hakim (husnulhakim@unpar.ac.id) 
-         * @return deskripsi mata kuliah
-         */
-        public String getDeskripsi(){
-            return "Mata kuliah ini memperkenalkan konsep dan lingkungan pemrograman berbasis web, "
-                    + "kemudian belajar membuat aplikasi berbasis web menggunakan HTML5, CSS, Java Script dan PHP. Untuk meningkatkan keterampilan pemrograman dilengkapi dengan praktikum. Sedangkan untuk mendapatkan pengalaman penerapan konsep diberikan tugas besar membuat program berbasis web dengan kasus yang ditentukan oleh mahasiswa.  ";
-        }
-
 }
