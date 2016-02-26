@@ -5,6 +5,12 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
+/**
+ * Kuliah ini merupakan kelanjutan dari kuliah Manajemen Informasi Basisdata. 
+ * Pada perkuliahan ini, mahasiswa akan mempelajari teknik-teknik pengelolaan 
+ * basis data dan membuat program dengan basis data yang optimal/efisien.
+ * @author Falahah . S.
+ */
 
 @MataKuliah(kode = "AIF314", nama = "Pemrograman Basis Data", sks = 2)
 public class AIF314 implements HasPrasyarat, PilihanWajib,HasPraktikum {

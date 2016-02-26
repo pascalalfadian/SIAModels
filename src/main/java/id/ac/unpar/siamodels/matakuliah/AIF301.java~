@@ -5,14 +5,18 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 /**
- * Mempelajari Konsep Data, Informasi, Pengetahuan, Sistem Informasi, proses dan pemodelan bisnis, jenis-jenis sistem informasi, untuk mendukung pengambilan keputusan. 
- * Mempelajari trend Teknologi Informasi, tahap-tahap pembangunan sistem informasi.
- * Mempelajari pengantar : EIS, e-bisnis/e-commerce, Business Intelligence, Cloud Computing dan Mobile Applications
- * @author Rosa de Lima E. Padmowati (rosad5@unpar.ac.id)
- */
+	*Mata kuliah ini memperkenalkan kepada mahasiswa konsep dasar tentang *sistem cerdas dan komponen-komponennya. "
+	*"Terdapat 4 topik utama yang dibahas yaitu teknik pencarian untuk *penyelesaian masalah, representasi pengetahuan dalam sistem  	 *cerdas, pemodelan ketidakpastian dalam masalah dan teknik pembelajaran mesin.
+     	* @author Thomas Anung Basuki
+     	* 
+     */
 
-@MataKuliah(kode = "AIF303", nama = "Pengantar Sistem Informasi", sks = 3)
-public class AIF303 implements HasPrasyarat, Wajib {
+@MataKuliah(kode = "AIF301", nama = "Pengantar Sistem Cerdas ", sks = 3)
+public class AIF301 implements HasPrasyarat, Wajib {
+
+    
+    
+        return "";
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
