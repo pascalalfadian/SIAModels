@@ -67,6 +67,25 @@ public class Kelulusan implements HasPrasyarat{
 		{
 			check=true;
 		}
+		//cek agama
+		boolean katolik=false;
+		boolean fenom=false;
+		if(mahasiswa.hasLulusKuliah("MKU003"))
+		{
+			katolik=true;
+		}
+		if(mahasiswa.hasLulusKuliah("MKU004"))
+		{
+			fenom=true;
+		}
+		if(katolik==true||fenom==true)
+		{
+			checkBoolean(true);
+		}
+		else
+		{
+			reasonsContainer.add("Belum mengambil MKU003 atau MKU004");
+		}
 		//cek kuliah wajib
 		for(int i=0;i<WAJIB.length;i++)
 		{
