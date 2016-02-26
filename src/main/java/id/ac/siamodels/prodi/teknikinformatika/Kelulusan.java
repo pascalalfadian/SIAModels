@@ -131,7 +131,7 @@ public class Kelulusan implements HasPrasyarat{
 		{
 			checkBoolean(true);
 		}
+		this.data=reasonsContainer;
 		return check;
 	}
 }
-
