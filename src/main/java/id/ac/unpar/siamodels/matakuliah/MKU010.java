@@ -10,7 +10,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * mahasiswa untuk menerapkan metode tersebut seraya menambah kosakata-kosakata baru. 
  * Mahasiswa juga dilatih untuk mempresentasikan hasil pemahamannya akan isi bahan bacaan.
  * 
- * @author 
  */
 @MataKuliah(kode = "MKU010", nama = "Bahasa Inggris", sks = 2)
 public class MKU010 implements Wajib {

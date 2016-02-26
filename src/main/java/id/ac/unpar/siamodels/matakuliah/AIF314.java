@@ -27,13 +27,5 @@ public class AIF314 implements HasPrasyarat, PilihanWajib, HasPraktikum {
         return true;
     }
 
-    /**
-     * @author Falahah . S.
-     * @return deskripsi mata kuliah
-     */
-    public String getDeskripsi() {
-        return "Kuliah ini merupakan kelanjutan dari kuliah Manajemen Informasi Basisdata. "
-                + "\"Pada perkuliahan ini, mahasiswa akan mempelajari teknik-teknik pengelolaan basis data dan membuat program dengan basis data yang optimal/efisien";
-    }
 
 }

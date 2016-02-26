@@ -10,7 +10,8 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * akademik yang khas perguruan tinggi seperti kedisiplinan, kerja sama, 
  * kemampuan menggunakan teknologi informasi dalam pembuatan tugas, kemampuan 
  * komunikasi, dsb.
- * @author Thomas Anung Basuki (anung@unpar.ac.id) dan Mariskha Tri Adithia (mariskha@unpar.ac.id)
+ * @author Thomas Anung Basuki (anung@unpar.ac.id) 
+ * @author Mariskha Tri Adithia (mariskha@unpar.ac.id)
  */
 @MataKuliah(kode = "AIF105", nama = "Pengantar Informatika", sks = 3)
 public class AIF105 implements Wajib{

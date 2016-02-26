@@ -10,7 +10,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * politik dan strategi nasional, serta implementasinya dalam kehidupan bermasyarakat, berbangsa 
  * dan bernegara kesatuan Republik Indonesia.
  * 
- * @author 
  */
 @MataKuliah(kode = "MKU002", nama = "Pendidikan Kewarganegaraan", sks = 2)
 public class MKU002 implements Wajib {

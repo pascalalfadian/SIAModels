@@ -14,7 +14,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * melakukan otoritik terhadap agama sendiri erat terkait dengan upaya menemukan kembali nilai
  * sejati agama atau otentisitas hidup beragama.
  * 
- * @author
  */
 @MataKuliah(kode = "MKU004", nama = "Pendidikan Agama (Fenomenologi)", sks = 2)
 public class MKU004 implements Wajib {

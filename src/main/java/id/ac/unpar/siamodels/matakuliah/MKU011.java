@@ -11,7 +11,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * mengenai dunia manusia (manusia dan pikirannya), pluralitas dan relativitas seni, serta 
  * aliran-aliran seni rupa Barat.
  * 
- * @author
  */
 @MataKuliah(kode = "MKU011", nama = "Estetika", sks = 2)
 public class MKU011 implements Wajib {

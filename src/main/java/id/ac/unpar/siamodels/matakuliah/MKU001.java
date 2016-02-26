@@ -14,8 +14,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * baik menyangkut aspek kognitif, afektif, maupun psikomotor. Dengan demikian, Pendidikan 
  * Pancasila mengajak mahasiswa menilai realitas ruang publik sehari-hari secara mandiri 
  * dengan panduan nilai-nilai etis Pancasila.
- * 
- * @author
+ *
  */
 @MataKuliah(kode = "MKU001", nama = "Pendidikan Pancasila", sks = 2)
 public class MKU001 implements Wajib {

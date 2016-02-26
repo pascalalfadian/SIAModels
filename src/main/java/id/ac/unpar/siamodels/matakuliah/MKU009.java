@@ -13,7 +13,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * surat dinas yang jelas dan komunikatif. Di akhir kuliah ini, mahasiswa diberi tugas
  * penyusunan makalah dengan benar.
  * 
- * @author 
  */
 @MataKuliah(kode = "MKU009", nama = "Bahasa Indonesia", sks = 2)
 public class MKU009 implements Wajib {

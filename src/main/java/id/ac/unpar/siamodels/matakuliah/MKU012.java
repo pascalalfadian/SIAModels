@@ -11,7 +11,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * tersebut, mahasiswa dilatih pula mengidentifikasi kerancuan-kerancuan (fallacies) yang sering 
  * dijumpai baik dalam kehidupan sehari-hari maupun dalam konteks akademik.
  * 
- * @author 
  */
 @MataKuliah(kode = "MKU012", nama = "Logika", sks = 2)
 public class MKU012 implements Wajib {

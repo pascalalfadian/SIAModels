@@ -10,7 +10,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * Kerajaan Allah, dan mampu menyatakan ajaran Gereja dalam pelayanan terhadap orang miskin dan
  * terlantar.
  * 
- * @author 
  */
 @MataKuliah(kode = "MKU003", nama = "Pendidikan Agama (Katolik)", sks = 2)
 public class MKU003 implements Wajib {
