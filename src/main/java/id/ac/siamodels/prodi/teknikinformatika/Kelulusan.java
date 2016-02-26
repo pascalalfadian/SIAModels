@@ -1,5 +1,6 @@
 package id.ac.siamodels.prodi.teknikinformatika;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import id.ac.unpar.siamodels.Mahasiswa;
@@ -31,11 +32,106 @@ public class Kelulusan implements HasPrasyarat{
 	 *  AIF317 dag				sem 7: aif401,aif403,aif405
 	 *  AIF318 pam				sem 8: aif402,aps402
 	 */
+	List<String> data=new ArrayList<String>();
+	boolean check=false;
+	
+	private void checkBoolean(boolean test)
+	{
+		if(test==true && this.check==false)
+		{
+			check=false;
+		}
+		else if(test==false && this.check==true)
+		{
+			check=false;
+		}
+		else if(test==false && this.check==false)
+		{
+			check=false;
+		}
+		else
+		{
+			check=true;
+		}
+	}
 	
 	@Override
-	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
-		int pil_count;
-		String[] Waj_Fail;
-		return false;
+	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {		
+		//cek sks
+		int sks=mahasiswa.calculateSKSLulus();
+		if(sks<144)
+		{
+			reasonsContainer.add("Masih Kurang "+(144-sks)+" SKS");
+		}
+		else
+		{
+			check=true;
+		}
+		//cek kuliah wajib
+		for(int i=0;i<WAJIB.length;i++)
+		{
+			for(int j=0;j<WAJIB[i].length;j++)
+			{
+				if(mahasiswa.hasLulusKuliah(WAJIB[i][j])==false)
+				{
+					reasonsContainer.add("Belum Lulus Kuliah Wajib"+ WAJIB[i][j]);
+				}
+				else
+				{
+					checkBoolean(true);
+				}
+			}
+		}
+		//cek pilihan wajib
+		int pil_count=0;
+		for(int i=0;i<PILIHAN_WAJIB.length;i++)
+		{
+			if(mahasiswa.hasLulusKuliah(PILIHAN_WAJIB[i]))
+			{
+				pil_count++;
+			}
+		}
+		if(pil_count<4)
+		{
+			reasonsContainer.add("Belum Mencukupi 4 Pilihan Wajib, Baru Lulus "+pil_count+" Mata Kuliah");
+		}
+		else
+		{
+			checkBoolean(true);
+		}
+		//cek projek
+		boolean proif=false;
+		boolean prosi1=false;
+		boolean prosi2=false;
+		if(mahasiswa.hasLulusKuliah("AIF306"))
+		{
+			proif=true;
+		}
+		if(mahasiswa.hasLulusKuliah("AIF304"))
+		{
+			prosi1=true;
+		}
+		if(mahasiswa.hasLulusKuliah("AIF406"))
+		{
+			prosi2=true;
+		}
+		if(proif==false&&prosi1==false)
+		{
+			reasonsContainer.add("Belum mengambil salah satu dari AIF306 atau AIF304+405");
+		}
+		else if(prosi1==true && prosi2==false)
+		{
+			reasonsContainer.add("Baru lulus Projek Sistem Informasi 1");
+		}
+		else if (proif==true)
+		{
+			checkBoolean(true);
+		}
+		else if(prosi1==true && prosi2==true)
+		{
+			checkBoolean(true);
+		}
+		return check;
 	}
 }
+
