@@ -13,11 +13,11 @@ import java.util.List;
  * Untuk meningkatkan keterampilan pemrograman dilengkapi dengan praktikum. 
  * Sedangkan untuk mendapatkan pengalaman penerapan konsep diberikan tugas implementasi suatu 
  * kasus pada lingkungan mobile-cloud dengan kasus yang sudah ditentukan.
- *   
+ * 
  * @author Gede Karya (gkarya@unpar.ac.id)
  */
 @MataKuliah(kode = "AIF318", nama = "Pemrograman Aplikasi Bergerak", sks = 2)
-public class AIF318 implements HasPrasyarat, PilihanWajib,HasPraktikum {
+public class AIF318 implements HasPrasyarat, PilihanWajib, HasPraktikum {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
