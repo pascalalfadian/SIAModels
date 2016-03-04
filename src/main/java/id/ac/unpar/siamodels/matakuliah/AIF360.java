@@ -17,5 +17,7 @@ public class AIF360 implements HasPrasyarat {
 		}
 		return true;
 	}
+        
+       
 
 }

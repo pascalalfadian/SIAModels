@@ -7,6 +7,15 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
 
 import java.util.List;
 
+/**
+ * Mata kuliah ini mengajarkan kepada mahasiswa teknik-teknik untuk membuat 
+ * layanan berbasis web. Mahasiswa diperkenalkan dengan standar-standar seperti 
+ * HTTP, XML, JSON dan diajarkan untuk memanfaatkannya dalam membuat maupun 
+ * menggunakan layanan pihak ketiga. Dalam kuliah ini, juga akan diperkenalkan 
+ * minimal satu layanan pihak ketiga yang dapat dimanfaatkan mahasiswa, seperti 
+ * Google Places Web Service.
+ * @author Pascal (pascal@unpar.ac.id)
+ */
 @MataKuliah(kode = "AIF469", nama = "Layanan Berbasis Web", sks = 3)
 public class AIF469 implements HasPrasyarat, Pilihan {
 
@@ -23,5 +32,5 @@ public class AIF469 implements HasPrasyarat, Pilihan {
 		}
 		return ok;
 	}
-
+        
 }

@@ -6,7 +6,14 @@ import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
-
+/**
+ * 1. Memberikan wawasan kepada mahasiswa tentang kemunculan dan pemanfaatan teknologi baru, 
+ * khususnya yang berkaitan dengan komputer, dan dampaknya terhadap masyarakat luas.
+ * 2. Memberikan kesadaran dan panduan bersikap kepada mahasiswa dalam menghadapi gejolak yang
+ * disebabkan oleh munculnya teknologi baru, khususnya yang berkaitan dengan komputer.
+ * 
+ * @author Oerip S. Santosa (oerip@unpar.ac.id)
+ */
 @MataKuliah(kode = "AIF403", nama = "Komputer & Masyarakat", sks = 2)
 public class AIF403 implements HasPrasyarat, Wajib {
 
@@ -19,5 +26,4 @@ public class AIF403 implements HasPrasyarat, Wajib {
       		}
       		return true;
       	}
-
 }
