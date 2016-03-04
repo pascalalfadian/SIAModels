@@ -55,6 +55,11 @@ public class Kelulusan implements HasPrasyarat{
 		}
 	}
 	
+	public List<String> getData()
+	{
+		return this.data;
+	}
+	
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {		
 		//cek sks
@@ -93,7 +98,7 @@ public class Kelulusan implements HasPrasyarat{
 			{
 				if(mahasiswa.hasLulusKuliah(WAJIB[i][j])==false)
 				{
-					reasonsContainer.add("Belum Lulus Kuliah Wajib"+ WAJIB[i][j]);
+					reasonsContainer.add("Belum Lulus Kuliah Wajib "+ WAJIB[i][j]);
 				}
 				else
 				{
