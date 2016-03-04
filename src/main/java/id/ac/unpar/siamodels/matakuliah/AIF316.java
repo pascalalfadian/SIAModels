@@ -18,7 +18,7 @@ import java.util.List;
  * @author Joanna Helga, M.Sc. (joanna@unpar.ac.id)
  */
 @MataKuliah(kode = "AIF316", nama = "Komputasi Paralel", sks = 2)
-public class AIF316 implements HasPrasyarat, PilihanWajib,HasPraktikum {
+public class AIF316 implements HasPrasyarat, PilihanWajib, HasPraktikum {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

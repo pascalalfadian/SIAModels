@@ -15,7 +15,7 @@ import java.util.List;
  * Sedangkan untuk mendapatkan pengalaman penerapan konsep diberikan tugas besar membuat 
  * program berbasis web dengan kasus yang ditentukan oleh mahasiswa.
  * @author Gede Karya(gkarya@unpar.ac.id)
- * @author Husnul Hakim(husnulhakim@unpar.ac.id
+ * @author Husnul Hakim (husnulhakim@unpar.ac.id)
  */
 @MataKuliah(kode = "AIF315", nama = "Pemrograman Berbasis Web", sks = 2)
 public class AIF315 implements HasPrasyarat, PilihanWajib, HasPraktikum {

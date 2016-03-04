@@ -16,7 +16,7 @@ import java.util.List;
  * tool menggunakan Git + Github, Mobile native app (Android, iOS, dll), dan
  * responsive web design.
  *
- * @author FPascal (pascal@unpar.ac.id)
+ * @author Pascal (pascal@unpar.ac.id)
  */
 
 @MataKuliah(kode = "AIF306", nama = "Proyek Informatika", sks = 6)
