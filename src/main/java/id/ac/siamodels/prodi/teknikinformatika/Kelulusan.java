@@ -32,9 +32,16 @@ public class Kelulusan implements HasPrasyarat{
 	 *  AIF317 dag				sem 7: aif401,aif403,aif405
 	 *  AIF318 pam				sem 8: aif402,aps402
 	 */
+
+	/**
+	* Berisi data persyaratan yang tidak dipenuhi
+	**/
 	List<String> data=new ArrayList<String>();
 	boolean check=false;
-	
+	/**
+	* Melalukan pengecekan terhadap keadaan persyaratan saat ini
+	* @param test hasil pengecekan syarat
+	**/
 	private void checkBoolean(boolean test)
 	{
 		if(test==true && this.check==false)
@@ -54,13 +61,22 @@ public class Kelulusan implements HasPrasyarat{
 			check=true;
 		}
 	}
-	
+	/**
+	* Getter dari attribute data
+	* @return attribute data
+	*/
 	public List<String> getData()
 	{
 		return this.data;
 	}
 	
 	@Override
+	/**
+	* Melakukan pengecekan syarat kelulusan
+	* @param mahasiswa mahasiswa yang dicek
+	* @param reasonsContainer alasan2 yang ada jika tidak memenuhi syarat
+	* @return boolean true jika memenuhi syarat, false jika sebaliknya
+	*/
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {		
 		//cek sks
 		int sks=mahasiswa.calculateSKSLulus();
