@@ -2,7 +2,6 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
 
 /**
  * Mata kuliah ini memperkenalkan kepada mahasiswa konsep jaringan lanjut
@@ -14,6 +13,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
  */
 
 @MataKuliah(kode = "AIF441", nama = "Administrasi Jaringan Komputer 3", sks = 3)
-public class AIF441 implements HasPraktikum, Pilihan {
+public class AIF441 implements HasPraktikum {
 
 }

@@ -1,7 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
 
 /**
  * Mata kuliah ini merupakan mata kuliah lanjutan dari mata kuliah Keamanan 
@@ -16,6 +15,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
  *
  */
 @MataKuliah(kode = "AIF336", nama = "Algoritma Kriptografi", sks = 3)
-public class AIF336 implements Pilihan{
+public class AIF336 {
     
 }
