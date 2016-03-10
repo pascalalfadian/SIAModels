@@ -1,6 +1,5 @@
 package id.ac.siamodels.prodi.teknikinformatika;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import id.ac.unpar.siamodels.Mahasiswa;
@@ -26,26 +25,6 @@ public class Kelulusan implements HasPrasyarat {
 	 * aif301,aif303,aif305,mku002 AIF316 kompar sem 6: aif302,aif304,aif306
 	 * AIF317 dag sem 7: aif401,aif403,aif405 AIF318 pam sem 8: aif402,aps402
 	 */
-
-	/**
-	 * Berisi data persyaratan yang tidak dipenuhi
-	 */
-	List<String> data = new ArrayList<String>();
-
-	/**
-	 * Getter dari attribute data
-	 * 
-	 * @return attribute data
-	 */
-	public List<String> getData(List<String> reasonsContainer) {
-		return this.data;
-	}
-	public List<String> checkKelulusan(Mahasiswa mahasiswa, List<String> reasonsContainer)
-	{
-		checkPrasyarat(mahasiswa, reasonsContainer);
-		return getData(reasonsContainer);
-	}
-	
 	@Override
 	/**
 	 * Melakukan pengecekan syarat kelulusan
@@ -59,7 +38,7 @@ public class Kelulusan implements HasPrasyarat {
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
 		// cek sks
 		boolean bisaLulus = false;
-		int sks = mahasiswa.caelculateSKSLulus();
+		int sks = mahasiswa.calculateSKSLulus();
 		if (sks < 144) {
 			reasonsContainer.add("Masih Kurang " + (144 - sks) + " SKS");
 		} else {
@@ -123,7 +102,6 @@ public class Kelulusan implements HasPrasyarat {
 		} else if (prosi1 == true && prosi2 == true) {
 			bisaLulus = bisaLulus & true;
 		}
-		this.data = reasonsContainer;
 		return bisaLulus;
 	}
 }
