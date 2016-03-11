@@ -1,5 +1,6 @@
 package id.ac.siamodels.prodi.teknikinformatika;
 
+import java.util.Arrays;
 import java.util.List;
 
 import id.ac.unpar.siamodels.Mahasiswa;
@@ -16,15 +17,10 @@ public class Kelulusan implements HasPrasyarat {
 			{ "AIF401", "AIF403", "AIF405" }, { "AIF402", "APS402" } };
 	public static final String[] AGAMA = { "MKU003", "MKU004" };
 
-	/**
-	 * pil wajib wajib agama AIF315 pbw sem 1:
-	 * aif101,aif103,aif105,mku001,mku008,mku010 mku003 AIF311 pemfung sem 2:
-	 * aif102,aif104,aif106,ams100,mku009,mku011 mku004 AIF312 kamin sem 3:
-	 * aif201,aif203,aif205,ams200,mku012 AIF314 grafkom sem 4:
-	 * aif202,aif204,aif206,aif208,aif210 AIF316 pbd sem 5:
-	 * aif301,aif303,aif305,mku002 AIF316 kompar sem 6: aif302,aif304,aif306
-	 * AIF317 dag sem 7: aif401,aif403,aif405 AIF318 pam sem 8: aif402,aps402
-	 */
+	public static final int SKS_LULUS = 144;
+
+	public static final int MIN_PIL_WAJIB = 4;
+
 	@Override
 	/**
 	 * Melakukan pengecekan syarat kelulusan
@@ -39,24 +35,22 @@ public class Kelulusan implements HasPrasyarat {
 		// cek sks
 		boolean bisaLulus = false;
 		int sks = mahasiswa.calculateSKSLulus();
-		if (sks < 144) {
-			reasonsContainer.add("Masih Kurang " + (144 - sks) + " SKS");
+		if (sks < SKS_LULUS) {
+			reasonsContainer.add("Masih Kurang " + (SKS_LULUS - sks) + " SKS");
 		} else {
 			bisaLulus = true;
 		}
 		// cek agama
-		boolean katolik = false;
-		boolean fenom = false;
-		if (mahasiswa.hasLulusKuliah("MKU003")) {
-			katolik = true;
+		boolean agama = false;
+		for (int i = 0; i < AGAMA.length; i++) {
+			if (mahasiswa.hasLulusKuliah(AGAMA[i])) {
+				agama = true;
+				bisaLulus = bisaLulus & true;
+				break;
+			}
 		}
-		if (mahasiswa.hasLulusKuliah("MKU004")) {
-			fenom = true;
-		}
-		if (katolik == true || fenom == true) {
-			bisaLulus = bisaLulus & true;
-		} else {
-			reasonsContainer.add("Belum mengambil MKU003 atau MKU004");
+		if (agama == false) {
+			reasonsContainer.add("Belum mengambil salah satu dari " + Arrays.toString(AGAMA));
 		}
 		// cek kuliah wajib
 		for (int i = 0; i < WAJIB.length; i++) {
@@ -75,32 +69,17 @@ public class Kelulusan implements HasPrasyarat {
 				pil_count++;
 			}
 		}
-		if (pil_count < 4) {
-			reasonsContainer.add("Belum Mencukupi 4 Pilihan Wajib, Baru Lulus " + pil_count + " Mata Kuliah");
+		if (pil_count < MIN_PIL_WAJIB) {
+			reasonsContainer.add(
+					"Belum Mencukupi " + MIN_PIL_WAJIB + " Pilihan Wajib, Baru Lulus " + pil_count + " Mata Kuliah");
 		} else {
 			bisaLulus = bisaLulus & true;
 		}
 		// cek projek
-		boolean proif = false;
-		boolean prosi1 = false;
-		boolean prosi2 = false;
-		if (mahasiswa.hasLulusKuliah("AIF306")) {
-			proif = true;
-		}
-		if (mahasiswa.hasLulusKuliah("AIF304")) {
-			prosi1 = true;
-		}
-		if (mahasiswa.hasLulusKuliah("AIF406")) {
-			prosi2 = true;
-		}
-		if (proif == false && prosi1 == false) {
+		if (mahasiswa.hasLulusKuliah("AIF306") || mahasiswa.hasLulusKuliah("AIF405")) {
+			bisaLulus = bisaLulus & true;
+		} else {
 			reasonsContainer.add("Belum mengambil salah satu dari AIF306 atau AIF304+405");
-		} else if (prosi1 == true && prosi2 == false) {
-			reasonsContainer.add("Baru lulus Projek Sistem Informasi 1");
-		} else if (proif == true) {
-			bisaLulus = bisaLulus & true;
-		} else if (prosi1 == true && prosi2 == true) {
-			bisaLulus = bisaLulus & true;
 		}
 		return bisaLulus;
 	}
