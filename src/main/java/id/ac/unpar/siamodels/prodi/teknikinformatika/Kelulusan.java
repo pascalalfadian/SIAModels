@@ -36,7 +36,7 @@ public class Kelulusan implements HasPrasyarat {
 		boolean bisaLulus = true;
 		int sks = mahasiswa.calculateSKSLulus();
 		if (sks < MIN_SKS_LULUS) {
-			reasonsContainer.add("Masih Kurang " + (MIN_SKS_LULUS - sks) + " SKS");
+			reasonsContainer.add(String.format("Anda baru mengambil %d SKS, masih kurang %d SKS lagi untuk mencapai %d.", sks, MIN_SKS_LULUS - sks, MIN_SKS_LULUS));
 			bisaLulus = false;
 		}
 		// cek agama
@@ -48,14 +48,14 @@ public class Kelulusan implements HasPrasyarat {
 			}
 		}
 		if (!lulusSalahSatuMKAgama) {
-			reasonsContainer.add("Belum mengambil salah satu dari " + Arrays.toString(AGAMA));
+			reasonsContainer.add("Anda belum mengambil salah satu dari MK Agama " + Arrays.toString(AGAMA));
 			bisaLulus = false;
 		}
 		// cek kuliah wajib
 		for (String[] mkWajibSemesterI : WAJIB) {
 			for (String mkWajib : mkWajibSemesterI) {
 				if (!mahasiswa.hasLulusKuliah(mkWajib)) {
-					reasonsContainer.add("Belum Lulus Kuliah Wajib " + mkWajib);
+					reasonsContainer.add("Anda belum lulus MK wajib " + mkWajib);
 					bisaLulus = false;
 				}
 			}
@@ -68,16 +68,16 @@ public class Kelulusan implements HasPrasyarat {
 			}
 		}
 		if (lulusPilihanWajib < MIN_PILIHAN_WAJIB) {
-			reasonsContainer.add("Belum Mencukupi " + MIN_PILIHAN_WAJIB + " Pilihan Wajib, Baru Lulus "
-					+ lulusPilihanWajib + " Mata Kuliah");
+			reasonsContainer.add(String.format("Anda baru lulus %d MK pilihan wajib, sedangkan Anda perlu lulus %d", lulusPilihanWajib, MIN_PILIHAN_WAJIB));
 			bisaLulus = false;
 		}
 		// cek projek
 		if (!mahasiswa.hasLulusKuliah("AIF306") && !mahasiswa.hasLulusKuliah("AIF405")) {
-			reasonsContainer.add("Belum mengambil salah satu dari AIF306 atau AIF304+AIF405");
+			reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF306 atau AIF304 & AIF405");
 			bisaLulus = false;
 		}
 		return bisaLulus;
 	}
+	
 }
 
