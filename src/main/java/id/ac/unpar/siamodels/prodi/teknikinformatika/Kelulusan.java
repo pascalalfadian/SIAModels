@@ -1,4 +1,4 @@
-package id.ac.siamodels.prodi.teknikinformatika;
+package id.ac.unpar.siamodels.prodi.teknikinformatika;
 
 import java.util.Arrays;
 import java.util.List;
