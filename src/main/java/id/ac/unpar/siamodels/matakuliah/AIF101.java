@@ -9,7 +9,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * Mata kuliah ini memperkenalkan kepada mahasiswa konsep dasar pemrograman 
  * seperti pengulangan dan percabangan, konsep dasar penyimpanan data kontigu 
  * menggunakan array, konsep dasar pemrograman berorientasi objek seperti kelas 
- * & objek, method, dll, termasuk di dalamnya 4 prinsip dasar pemrograman 
+ * &amp; objek, method, dll, termasuk di dalamnya 4 prinsip dasar pemrograman 
  * berorientasi objek : data abstraction, encapsulation, inheritance dan 
  * polymorphism. Selain, itu diberikan masalah-masalah komputasi sederhana 
  * yang harus diselesaikan menggunakan konsep-konsep yang  sudah diperkenalkan 
