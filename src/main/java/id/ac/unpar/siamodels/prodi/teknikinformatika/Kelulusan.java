@@ -83,20 +83,20 @@ public class Kelulusan implements HasPrasyarat {
 		}
 		// cek nilai TOEFL
 		Map<LocalDate, Integer> toefl_score= mahasiswa.getNilaiTOEFL();
-		Set<E> set = toefl_score.entrySet();
+		Set set = toefl_score.entrySet();
 		int max_toefl=0;
 		int number_of_takes=0;
-		Iterator<E> i = set.iterator();
+		Iterator i = set.iterator();
 		while(i.hasNext())
 		{
 			number_of_takes++;
 			Map.Entry me =(Map.Entry)i.next();
-			if(max_toefl<me.getValue())
+			if(max_toefl<(int)me.getValue())
 			{
-				max_toefl = me.getValue();
+				max_toefl = (int)me.getValue();
 			}
 		}
-		if(!max_toefl>=500)
+		if(!(max_toefl>=500))
 		{
 			if(number_of_takes<=8)
 			{
