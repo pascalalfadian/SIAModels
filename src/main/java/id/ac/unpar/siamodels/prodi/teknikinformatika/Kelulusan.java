@@ -1,7 +1,12 @@
 package id.ac.unpar.siamodels.prodi.teknikinformatika;
 
+import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedMap;
 
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
@@ -75,6 +80,41 @@ public class Kelulusan implements HasPrasyarat {
 		if (!mahasiswa.hasLulusKuliah("AIF306") && !mahasiswa.hasLulusKuliah("AIF405")) {
 			reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF306 atau AIF304 & AIF405");
 			bisaLulus = false;
+		}
+		// cek nilai TOEFL
+		Map<LocalDate, Integer> toefl_score= mahasiswa.getNilaiTOEFL();
+		Set<E> set = toefl_score.entrySet();
+		int max_toefl=0;
+		int number_of_takes=0;
+		Iterator<E> i = set.iterator();
+		while(i.hasNext())
+		{
+			number_of_takes++;
+			Map.Entry me =(Map.Entry)i.next();
+			if(max_toefl<me.getValue())
+			{
+				max_toefl = me.getValue();
+			}
+		}
+		if(!max_toefl>=500)
+		{
+			if(number_of_takes<=8)
+			{
+				reasonsContainer.add("Belum mencapai nilai TOEFL sebesar 500.");
+				bisaLulus = false;
+			}
+			else
+			{
+				if(max_toefl<450)
+				{
+					reasonsContainer.add("Belum mencapai nilai TOEFL sebesar 450.");
+					bisaLulus = false;
+				}
+				else
+				{
+					reasonsContainer.add("Sudah lulus TOEFL dengan nilai "+max_toefl+" dan memerlukan dispensasi dari rektor.");
+				}
+			}
 		}
 		return bisaLulus;
 	}
