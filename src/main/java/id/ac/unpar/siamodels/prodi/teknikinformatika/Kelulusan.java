@@ -82,7 +82,13 @@ public class Kelulusan implements HasPrasyarat {
         }
         // cek nilai TOEFL
         SortedMap<LocalDate, Integer> toefl_score = mahasiswa.getNilaiTOEFL();
-        Collection nilai = toefl_score.values();
+        if(toefl_score == null)
+        {
+            reasonsContainer.add("Belum mengambil TOEFL.");
+            bisaLulus = false;
+            return bisaLulus;
+        }
+        Collection nilai = toefl_score.values();   
         int max_toefl = 0;
         int number_of_takes = 0;
         Iterator i = nilai.iterator();
