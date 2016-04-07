@@ -81,34 +81,31 @@ public class Kelulusan implements HasPrasyarat {
             bisaLulus = false;
         }
         // cek nilai TOEFL
-        SortedMap<LocalDate, Integer> toefl_score = mahasiswa.getNilaiTOEFL();
-        if(toefl_score == null)
+        SortedMap<LocalDate, Integer> toeflScore = mahasiswa.getNilaiTOEFL();
+        if(toeflScore == null)
         {
             reasonsContainer.add("Belum mengambil TOEFL.");
             bisaLulus = false;
-            return bisaLulus;
         }
-        Collection nilai = toefl_score.values();   
-        int max_toefl = 0;
-        int number_of_takes = 0;
+        Collection nilai = toeflScore.values();   
+        int maxToefl = 0;
         Iterator i = nilai.iterator();
         while (i.hasNext()) {
-            number_of_takes++;
             int val = (int) i.next();
-            if (max_toefl < val) {
-                max_toefl = val;
+            if (maxToefl < val) {
+                maxToefl = val;
             }
         }
-        if (!(max_toefl >= 500)) {
-            if (number_of_takes <= 8) {
+        if (!(maxToefl >= 500)) {
+            if (toeflScore.size() <= 8) {
                 reasonsContainer.add("Belum mencapai nilai TOEFL sebesar 500.");
                 bisaLulus = false;
             } else {
-                if (max_toefl < 450) {
+                if (maxToefl < 450) {
                     reasonsContainer.add("Belum mencapai nilai TOEFL sebesar 450.");
                     bisaLulus = false;
                 } else {
-                    reasonsContainer.add("Sudah lulus TOEFL dengan nilai " + max_toefl + " dan memerlukan dispensasi dari rektor.");
+                    reasonsContainer.add("Sudah lulus TOEFL dengan nilai " + maxToefl + " dan memerlukan dispensasi dari rektor karena sudah mengambil tes TOEFL sebanyak "+toeflScore.size()+" kali.");
                 }
             }
         }
