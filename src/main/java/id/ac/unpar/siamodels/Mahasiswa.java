@@ -81,22 +81,36 @@ public class Mahasiswa {
 	 * </ul>
 	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
 	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum mengambil satu kuliah pun.
+	 * @deprecated Gunakan {@link #calculateIPLulus()}, nama lebih konsisten dengan DPS. 
 	 */
 	public double calculateIPKLulus() throws ArrayIndexOutOfBoundsException {
-		return calculateIPKTempuh(true);
+		return calculateIPTempuh(true);
 	}
 
 	/**
-	 * Menghitung IPK mahasiswa sampai saat ini, dengan aturan:
+	 * Menghitung IP mahasiswa sampai saat ini, dengan aturan:
+	 * <ul>
+	 *   <li>Kuliah yang tidak lulus tidak dihitung
+	 *   <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
+	 * </ul>
+	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
+	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum mengambil satu kuliah pun.
+	 */
+	public double calculateIPLulus() throws ArrayIndexOutOfBoundsException {
+		return calculateIPTempuh(true);
+	}
+	
+	/**
+	 * Menghitung IP mahasiswa sampai saat ini, dengan aturan:
 	 * <ul>
 	 *   <li>Perhitungan kuliah yang tidak lulus ditentukan parameter
 	 *   <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
 	 * </ul>
-	 * @param lulusSaja set true jika ingin membuang mata kuliah tidak lulus 
+	 * @param lulusSaja set true jika ingin membuang mata kuliah tidak lulus, false jika ingin semua (sama dengan "IP N. Terbaik" di DPS)
 	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
 	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum mengambil satu kuliah pun.
 	 */
-	public double calculateIPKTempuh(boolean lulusSaja) throws ArrayIndexOutOfBoundsException {
+	public double calculateIPTempuh(boolean lulusSaja) throws ArrayIndexOutOfBoundsException {
 		List<Nilai> riwayatNilai = getRiwayatNilai();
 		if (riwayatNilai.size() == 0) {
 			return Double.NaN;
@@ -127,6 +141,52 @@ public class Mahasiswa {
 			totalNilai += nilaiAkhir;
 		}
 		return totalNilai / totalSKS;
+	}
+
+	/**
+	 * Menghitung IP Kumulatif mahasiswa sampai saat ini, dengan aturan:
+	 * <ul>
+	 *   <li>Jika pengambilan beberapa kali, diambil semua.
+	 * </ul>
+	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
+	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum mengambil satu kuliah pun.
+	 */
+	public double calculateIPKumulatif() throws ArrayIndexOutOfBoundsException {
+		List<Nilai> riwayatNilai = getRiwayatNilai();
+		if (riwayatNilai.size() == 0) {
+			return Double.NaN;
+		}
+		double totalNilai = 0.0;
+		int totalSKS = 0;
+		// Cari nilai setiap kuliah
+		for (Nilai nilai: riwayatNilai) {
+			if (nilai.getNilaiAkhir() == null) {
+				continue;
+			}
+			Double angkaAkhir = nilai.getAngkaAkhir();
+			int sks = nilai.getMataKuliah().sks();
+			totalSKS += sks;
+			totalNilai += sks * angkaAkhir;
+		}
+		if (npm.equals("2012730038")) {
+			System.err.println("DEBUG: " + totalNilai + "/" + totalSKS);
+		}
+		return totalNilai / totalSKS;
+	}
+	
+	/**
+	 * Menghitung IPK mahasiswa sampai saat ini, dengan aturan:
+	 * <ul>
+	 *   <li>Perhitungan kuliah yang tidak lulus ditentukan parameter
+	 *   <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
+	 * </ul>
+	 * @param lulusSaja set true jika ingin membuang mata kuliah tidak lulus 
+	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah mengandung nilai per mata kuliah!
+	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum mengambil satu kuliah pun.
+	 * @deprecated Gunakan {@link #calculateIPKTempuh(boolean)}, nama lebih konsisten dengan DPS.
+	 */
+	public double calculateIPKTempuh(boolean lulusSaja) throws ArrayIndexOutOfBoundsException {
+		return calculateIPTempuh(lulusSaja);
 	}
 
 	
