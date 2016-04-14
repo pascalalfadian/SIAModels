@@ -168,9 +168,6 @@ public class Mahasiswa {
 			totalSKS += sks;
 			totalNilai += sks * angkaAkhir;
 		}
-		if (npm.equals("2012730038")) {
-			System.err.println("DEBUG: " + totalNilai + "/" + totalSKS);
-		}
 		return totalNilai / totalSKS;
 	}
 	
