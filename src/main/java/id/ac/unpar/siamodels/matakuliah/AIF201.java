@@ -3,6 +3,7 @@ package id.ac.unpar.siamodels.matakuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasResponsi;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
@@ -21,8 +22,8 @@ import java.util.List;
  * sehingga dapat diaplikasikan pada bahasa yang lain.
  * @author Pascal (pascal@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF201", nama = "Analisis & Desain Berorientasi Objek", sks = 4)
-public class AIF201 implements HasPrasyarat, Wajib, HasPraktikum, HasResponsi {
+@InfoMataKuliah(nama = "Analisis & Desain Berorientasi Objek", sks = 4)
+public class AIF201 extends MataKuliah implements HasPrasyarat, Wajib, HasPraktikum, HasResponsi {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

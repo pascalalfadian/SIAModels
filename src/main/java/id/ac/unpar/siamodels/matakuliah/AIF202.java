@@ -3,6 +3,7 @@ package id.ac.unpar.siamodels.matakuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasResponsi;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
@@ -18,8 +19,8 @@ import java.util.List;
  * diperkenalkan dan mengimplementasikannya dalam bahasa pemrograman Java.
  * @author Joanna Helga, M.Sc. (joanna@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF202", nama = "Desain & Analisis Algoritma", sks = 4)
-public class AIF202 implements HasPrasyarat, Wajib, HasResponsi, HasPraktikum {
+@InfoMataKuliah(nama = "Desain & Analisis Algoritma", sks = 4)
+public class AIF202 extends MataKuliah implements HasPrasyarat, Wajib, HasResponsi, HasPraktikum {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

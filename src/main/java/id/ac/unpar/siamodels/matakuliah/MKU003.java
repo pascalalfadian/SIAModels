@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -11,7 +12,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * terlantar.
  * 
  */
-@MataKuliah(kode = "MKU003", nama = "Pendidikan Agama (Katolik)", sks = 2)
-public class MKU003 implements Wajib {
+@InfoMataKuliah(nama = "Pendidikan Agama (Katolik)", sks = 2)
+public class MKU003 extends MataKuliah implements Wajib {
 
 }

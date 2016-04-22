@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -12,7 +13,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * mempelajari komponen komputer, misalnya register dan memori.
  * @author Mariskha Tri Adithia (mariskha@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF106", nama = "Sistem Dijital", sks = 3)
-public class AIF106 implements Wajib {
+@InfoMataKuliah(nama = "Sistem Dijital", sks = 3)
+public class AIF106 extends MataKuliah implements Wajib {
 
 }

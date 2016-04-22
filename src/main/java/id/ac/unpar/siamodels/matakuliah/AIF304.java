@@ -2,6 +2,7 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasResponsi;
@@ -17,8 +18,8 @@ import java.util.List;
  * @author Veronica S. Moertini (moertini@unpar.ac.id)
  */
 
-@MataKuliah(kode = "AIF304", nama = "Proyek Sistem Informasi 1", sks = 3)
-public class AIF304 implements HasPrasyarat, HasPraktikum, HasResponsi, Projek {
+@InfoMataKuliah(nama = "Proyek Sistem Informasi 1", sks = 3)
+public class AIF304 extends MataKuliah implements HasPrasyarat, HasPraktikum, HasResponsi, Projek {
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

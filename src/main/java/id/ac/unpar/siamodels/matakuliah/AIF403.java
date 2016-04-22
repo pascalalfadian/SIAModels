@@ -4,6 +4,7 @@ import java.util.List;
 
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 /**
@@ -14,8 +15,8 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * 
  * @author Oerip S. Santosa (oerip@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF403", nama = "Komputer & Masyarakat", sks = 2)
-public class AIF403 implements HasPrasyarat, Wajib {
+@InfoMataKuliah(nama = "Komputer & Masyarakat", sks = 2)
+public class AIF403 extends MataKuliah implements HasPrasyarat, Wajib {
 
       	@Override
       	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
@@ -16,7 +17,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
  *
  * @author Luciana (luciana@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF313", nama = "Grafika Komputer", sks = 2)
-public class AIF313 implements PilihanWajib, HasPraktikum {
+@InfoMataKuliah(nama = "Grafika Komputer", sks = 2)
+public class AIF313 extends MataKuliah implements PilihanWajib, HasPraktikum {
 
 }

@@ -2,6 +2,7 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
 
@@ -16,8 +17,8 @@ import java.util.List;
  * Google Places Web Service.
  * @author Pascal (pascal@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF469", nama = "Layanan Berbasis Web", sks = 3)
-public class AIF469 implements HasPrasyarat, Pilihan {
+@InfoMataKuliah(nama = "Layanan Berbasis Web", sks = 3)
+public class AIF469 extends MataKuliah implements HasPrasyarat, Pilihan {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

@@ -2,6 +2,7 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Projek;
 
@@ -19,8 +20,8 @@ import java.util.List;
  * @author Pascal (pascal@unpar.ac.id)
  */
 
-@MataKuliah(kode = "AIF306", nama = "Proyek Informatika", sks = 6)
-public class AIF306 implements HasPrasyarat, Projek {
+@InfoMataKuliah(nama = "Proyek Informatika", sks = 6)
+public class AIF306 extends MataKuliah implements HasPrasyarat, Projek {
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

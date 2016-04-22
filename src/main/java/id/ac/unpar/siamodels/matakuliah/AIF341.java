@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 
@@ -15,7 +16,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
  * @author Chandra Wijaya, ST., MT. (chandraw@unpar.ac.id)
  *
  */
-@MataKuliah(kode = "AIF341", nama = "Administrasi Jaringan Komputer 1", sks = 3)
-public class AIF341 implements HasPraktikum{
+@InfoMataKuliah(nama = "Administrasi Jaringan Komputer 1", sks = 3)
+public class AIF341 extends MataKuliah implements HasPraktikum {
     
 }

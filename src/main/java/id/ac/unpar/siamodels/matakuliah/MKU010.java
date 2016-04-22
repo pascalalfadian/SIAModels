@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -11,7 +12,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * Mahasiswa juga dilatih untuk mempresentasikan hasil pemahamannya akan isi bahan bacaan.
  * 
  */
-@MataKuliah(kode = "MKU010", nama = "Bahasa Inggris", sks = 2)
-public class MKU010 implements Wajib {
+@InfoMataKuliah(nama = "Bahasa Inggris", sks = 2)
+public class MKU010 extends MataKuliah implements Wajib {
 
 }

@@ -3,6 +3,7 @@ package id.ac.unpar.siamodels.matakuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -19,8 +20,8 @@ import java.util.List;
  * suatu bahasa pemrograman berorientasi objek.
  * @author husnulhakim@unpar.ac.id
  */
-@MataKuliah(kode = "AIF102", nama = "Algoritma dan Struktur Data", sks = 4)
-public class AIF102 implements HasPrasyarat, Wajib, HasPraktikum {
+@InfoMataKuliah(nama = "Algoritma dan Struktur Data", sks = 4)
+public class AIF102 extends MataKuliah implements HasPrasyarat, Wajib, HasPraktikum {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

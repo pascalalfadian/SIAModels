@@ -2,6 +2,7 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -15,8 +16,8 @@ import java.util.List;
  * dalam pengelolaan sistem operasi.
  * @author Chandra Wijaya (chandraw@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF206", nama = "Sistem Operasi", sks = 4)
-public class AIF206 implements HasPrasyarat, Wajib {
+@InfoMataKuliah(nama = "Sistem Operasi", sks = 4)
+public class AIF206 extends MataKuliah implements HasPrasyarat, Wajib {
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

@@ -2,12 +2,13 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 
 import java.util.List;
 
-@MataKuliah(kode = "AIF339", nama = "Pemodelan Formal", sks = 3)
-public class AIF339 implements HasPrasyarat {
+@InfoMataKuliah(nama = "Pemodelan Formal", sks = 3)
+public class AIF339 extends MataKuliah implements HasPrasyarat {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

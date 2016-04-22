@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -12,7 +13,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * dijumpai baik dalam kehidupan sehari-hari maupun dalam konteks akademik.
  * 
  */
-@MataKuliah(kode = "MKU012", nama = "Logika", sks = 2)
-public class MKU012 implements Wajib {
+@InfoMataKuliah(nama = "Logika", sks = 2)
+public class MKU012 extends MataKuliah implements Wajib {
 
 }

@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -13,8 +14,8 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * @author Thomas Anung Basuki (anung@unpar.ac.id) 
  * @author Mariskha Tri Adithia (mariskha@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF105", nama = "Pengantar Informatika", sks = 3)
-public class AIF105 implements Wajib{
+@InfoMataKuliah(nama = "Pengantar Informatika", sks = 3)
+public class AIF105 extends MataKuliah implements Wajib{
 
 
 }

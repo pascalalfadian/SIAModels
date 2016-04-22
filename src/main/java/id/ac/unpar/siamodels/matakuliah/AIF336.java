@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 
 /**
@@ -14,7 +15,7 @@ import id.ac.unpar.siamodels.MataKuliah;
  * @author Mariskha Tri Adithia (mariskha@unpar.ac.id)
  *
  */
-@MataKuliah(kode = "AIF336", nama = "Algoritma Kriptografi", sks = 3)
-public class AIF336 {
+@InfoMataKuliah(nama = "Algoritma Kriptografi", sks = 3)
+public class AIF336 extends MataKuliah {
     
 }

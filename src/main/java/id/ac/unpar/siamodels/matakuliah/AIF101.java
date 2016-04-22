@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
@@ -16,8 +17,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * dan mengimplementasikannya menggunakan bahasa pemrograman Java
  * @author Lionov, M.Sc. (lionov@unpar.ac.id)
  */
-@MataKuliah(kode = "AIF101", nama = "Pemrograman Berorientasi Objek", sks = 6)
-public class AIF101 implements Wajib, HasPraktikum {
-
+@InfoMataKuliah(nama = "Pemrograman Berorientasi Objek", sks = 6)
+public class AIF101 extends MataKuliah implements Wajib, HasPraktikum {
 
 }

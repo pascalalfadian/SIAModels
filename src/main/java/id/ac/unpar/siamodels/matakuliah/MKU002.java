@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -11,7 +12,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * dan bernegara kesatuan Republik Indonesia.
  * 
  */
-@MataKuliah(kode = "MKU002", nama = "Pendidikan Kewarganegaraan", sks = 2)
-public class MKU002 implements Wajib {
+@InfoMataKuliah(nama = "Pendidikan Kewarganegaraan", sks = 2)
+public class MKU002 extends MataKuliah implements Wajib {
 
 }

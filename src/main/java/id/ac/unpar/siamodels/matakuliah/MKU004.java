@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -15,7 +16,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * sejati agama atau otentisitas hidup beragama.
  * 
  */
-@MataKuliah(kode = "MKU004", nama = "Pendidikan Agama (Fenomenologi)", sks = 2)
-public class MKU004 implements Wajib {
+@InfoMataKuliah(nama = "Pendidikan Agama (Fenomenologi)", sks = 2)
+public class MKU004 extends MataKuliah implements Wajib {
 
 }

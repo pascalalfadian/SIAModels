@@ -1,31 +1,37 @@
 package id.ac.unpar.siamodels;
 
-import java.lang.annotation.Target;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+public abstract class MataKuliah {
+	private final String kode;
+	private final String nama;
+	private final Integer sks;
+	
+	public MataKuliah() {
+		this.kode = this.getClass().getSimpleName();
+		if (this.getClass().isAnnotationPresent(InfoMataKuliah.class)) {
+			InfoMataKuliah infoMK = (InfoMataKuliah) this.getClass().getAnnotation(InfoMataKuliah.class);
+			this.nama = infoMK.nama();
+			this.sks = infoMK.sks();
+		} else {
+			this.nama = null;
+			this.sks = null;
+		}
+	}
+	
+	public MataKuliah(String kode, String nama, int sks) {
+		this.kode = kode;
+		this.nama = nama;
+		this.sks = sks;
+	}
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface MataKuliah {
-	/**
-	 * Kode Mata Kuliah. Harus sama dengan nama kelas nya.
-	 * 
-	 * @return kode mata kuliah
-	 */
-	public String kode();
+	public String getKode() {
+		return kode;
+	}
 
-	/**
-	 * Jumlah bobot sks dari mata kuliah ini
-	 * 
-	 * @return jumlah bobot sks
-	 */
-	public int sks();
+	public String getNama() {
+		return nama;
+	}
 
-	/**
-	 * Nama mata kuliah ini
-	 * 
-	 * @return nama mata kuliah
-	 */
-	public String nama();
+	public Integer getSks() {
+		return sks;
+	}
 }

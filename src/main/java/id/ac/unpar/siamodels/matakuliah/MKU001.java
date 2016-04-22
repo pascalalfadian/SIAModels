@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -16,7 +17,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * dengan panduan nilai-nilai etis Pancasila.
  *
  */
-@MataKuliah(kode = "MKU001", nama = "Pendidikan Pancasila", sks = 2)
-public class MKU001 implements Wajib {
+@InfoMataKuliah(nama = "Pendidikan Pancasila", sks = 2)
+public class MKU001 extends MataKuliah implements Wajib {
 
 }

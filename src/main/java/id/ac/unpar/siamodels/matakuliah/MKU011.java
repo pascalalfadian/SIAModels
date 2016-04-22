@@ -1,5 +1,6 @@
 package id.ac.unpar.siamodels.matakuliah;
 
+import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
@@ -12,7 +13,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * aliran-aliran seni rupa Barat.
  * 
  */
-@MataKuliah(kode = "MKU011", nama = "Estetika", sks = 2)
-public class MKU011 implements Wajib {
+@InfoMataKuliah(nama = "Estetika", sks = 2)
+public class MKU011 extends MataKuliah implements Wajib {
 
 }
