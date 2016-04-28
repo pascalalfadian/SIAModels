@@ -6,7 +6,6 @@ import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasResponsi;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Projek;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ import java.util.List;
  */
 
 @InfoMataKuliah(nama = "Proyek Sistem Informasi 1", sks = 3)
-public class AIF304 extends MataKuliah implements HasPrasyarat, HasPraktikum, HasResponsi, Projek {
+public class AIF304 extends MataKuliah implements HasPrasyarat, HasPraktikum, HasResponsi {
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

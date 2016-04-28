@@ -2,7 +2,6 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 /**
  * Mata kuliah estetika memberi pemahaman konseptual filosofis "seni" dalam khasanah keilmuan, 
@@ -14,6 +13,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * 
  */
 @InfoMataKuliah(nama = "Estetika", sks = 2)
-public class MKU011 extends MataKuliah implements Wajib {
+public class MKU011 extends MataKuliah{
 
 }

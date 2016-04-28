@@ -2,7 +2,6 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 /**
  * Tujuan dari mata kuliah ini adalah untuk mendalami keterampilan berbahasa Indonesia, agar 
@@ -16,6 +15,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * 
  */
 @InfoMataKuliah(nama = "Bahasa Indonesia", sks = 2)
-public class MKU009 extends MataKuliah implements Wajib {
+public class MKU009 extends MataKuliah{
 
 }

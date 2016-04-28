@@ -4,7 +4,6 @@ import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Pilihan;
 import java.util.List;
 
 /**
@@ -19,7 +18,7 @@ import java.util.List;
  */
 
 @InfoMataKuliah(nama = "Kecerdasan Bisnis", sks = 3)
-public class AIF453 extends MataKuliah implements HasPrasyarat, Pilihan {
+public class AIF453 extends MataKuliah implements HasPrasyarat {
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
@@ -27,7 +26,7 @@ public class AIF453 extends MataKuliah implements HasPrasyarat, Pilihan {
         if (mahasiswa.hasTempuhKuliah("AIF204") || mahasiswa.hasTempuhKuliah("AIF294")) {
             ok = true;
         }
-        if ((mahasiswa.hasTempuhKuliah("AIF102") || !mahasiswa.hasTempuhKuliah("AIF192")) && mahasiswa.calculateIPKLulus() > 2.75) {
+        if ((mahasiswa.hasTempuhKuliah("AIF102") || !mahasiswa.hasTempuhKuliah("AIF192")) && mahasiswa.calculateIPLulus() > 2.75) {
             ok = true;
         }
         if (!ok) {

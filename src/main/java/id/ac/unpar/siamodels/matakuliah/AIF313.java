@@ -3,7 +3,6 @@ package id.ac.unpar.siamodels.matakuliah;
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
-import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 /**
  * Mata kuliah ini memperkenalkan kepada mahasiswa konsep dasar pembuatan grafik
@@ -18,6 +17,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
  * @author Luciana (luciana@unpar.ac.id)
  */
 @InfoMataKuliah(nama = "Grafika Komputer", sks = 2)
-public class AIF313 extends MataKuliah implements PilihanWajib, HasPraktikum {
+public class AIF313 extends MataKuliah implements HasPraktikum {
 
 }

@@ -6,7 +6,6 @@ import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 /**
  * 1. Memberikan wawasan kepada mahasiswa tentang kemunculan dan pemanfaatan teknologi baru, 
  * khususnya yang berkaitan dengan komputer, dan dampaknya terhadap masyarakat luas.
@@ -16,7 +15,7 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * @author Oerip S. Santosa (oerip@unpar.ac.id)
  */
 @InfoMataKuliah(nama = "Komputer & Masyarakat", sks = 2)
-public class AIF403 extends MataKuliah implements HasPrasyarat, Wajib {
+public class AIF403 extends MataKuliah implements HasPrasyarat {
 
       	@Override
       	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

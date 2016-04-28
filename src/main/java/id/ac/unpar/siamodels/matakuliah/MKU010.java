@@ -2,7 +2,6 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 /**
  * Mata kuliah ini difokuskan pada pemahaman sumber referensi dalam Bahasa Inggris dan 
@@ -13,6 +12,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * 
  */
 @InfoMataKuliah(nama = "Bahasa Inggris", sks = 2)
-public class MKU010 extends MataKuliah implements Wajib {
+public class MKU010 extends MataKuliah{
 
 }

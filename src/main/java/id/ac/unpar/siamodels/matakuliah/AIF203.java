@@ -4,7 +4,6 @@ import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  * @author Dr.rer.nat Cecilia Esti Nugraheni (cheni@unpar.ac.id)
  */
 @InfoMataKuliah(nama = "Struktur Diskrit", sks = 4)
-public class AIF203 extends MataKuliah implements HasPrasyarat, Wajib {
+public class AIF203 extends MataKuliah implements HasPrasyarat {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

@@ -2,7 +2,6 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 /**
  * Mata kuliah ini merupakan salah satu cara untuk mencapai kompetensi dasar 
@@ -13,6 +12,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * @author Mariskha Tri Adithia (mariskha@unpar.ac.id)
  */
 @InfoMataKuliah(nama = "Matematika Diskrit", sks = 3)
-public class AIF103 extends MataKuliah implements Wajib{
+public class AIF103 extends MataKuliah{
 
 }
