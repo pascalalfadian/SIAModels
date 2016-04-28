@@ -26,7 +26,7 @@ public class AIF453 extends MataKuliah implements HasPrasyarat {
         if (mahasiswa.hasTempuhKuliah("AIF204") || mahasiswa.hasTempuhKuliah("AIF294")) {
             ok = true;
         }
-        if ((mahasiswa.hasTempuhKuliah("AIF102") || !mahasiswa.hasTempuhKuliah("AIF192")) && mahasiswa.calculateIPLulus() > 2.75) {
+        if ((mahasiswa.hasTempuhKuliah("AIF102") || !mahasiswa.hasTempuhKuliah("AIF192")) && mahasiswa.calculateIPKLulus() > 2.75) {
             ok = true;
         }
         if (!ok) {
