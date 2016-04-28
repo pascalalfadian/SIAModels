@@ -2,7 +2,6 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 /**
  * Mata kuliah ini membentuk karakteristik mahasiswa sebagai manusia yang memiliki religiusitas
@@ -13,6 +12,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * 
  */
 @InfoMataKuliah(nama = "Pendidikan Agama (Katolik)", sks = 2)
-public class MKU003 extends MataKuliah implements Wajib {
+public class MKU003 extends MataKuliah {
 
 }

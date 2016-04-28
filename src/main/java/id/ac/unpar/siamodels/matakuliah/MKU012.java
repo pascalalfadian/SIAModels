@@ -2,7 +2,6 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 /**
  * Perkuliahan logika ditujukan untuk memberikan dasar-dasar ketrampilan berpikir rasional dan
@@ -14,6 +13,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * 
  */
 @InfoMataKuliah(nama = "Logika", sks = 2)
-public class MKU012 extends MataKuliah implements Wajib {
+public class MKU012 extends MataKuliah{
 
 }

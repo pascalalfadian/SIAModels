@@ -4,12 +4,11 @@ import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 import java.util.List;
 
 @InfoMataKuliah(nama = "Etika Profesi", sks = 2)
-public class APS402 extends MataKuliah implements HasPrasyarat, Wajib {
+public class APS402 extends MataKuliah implements HasPrasyarat {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

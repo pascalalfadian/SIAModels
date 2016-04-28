@@ -2,7 +2,6 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
 
 /**
  * Fenomenologi Agama merupakan bagian yang tak terpisahkan dari kajian filosofis, kritis, 
@@ -17,6 +16,6 @@ import id.ac.unpar.siamodels.matakuliah.interfaces.Wajib;
  * 
  */
 @InfoMataKuliah(nama = "Pendidikan Agama (Fenomenologi)", sks = 2)
-public class MKU004 extends MataKuliah implements Wajib {
+public class MKU004 extends MataKuliah {
 
 }

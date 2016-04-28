@@ -4,12 +4,11 @@ import id.ac.unpar.siamodels.Mahasiswa;
 import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
-import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
 
 @InfoMataKuliah(nama = "Desain Antarmuka Grafis", sks = 2)
-public class AIF317 extends MataKuliah implements HasPrasyarat, PilihanWajib {
+public class AIF317 extends MataKuliah implements HasPrasyarat {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

@@ -5,7 +5,6 @@ import id.ac.unpar.siamodels.MataKuliah;
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPraktikum;
 import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
-import id.ac.unpar.siamodels.matakuliah.interfaces.PilihanWajib;
 
 import java.util.List;
 /**
@@ -18,7 +17,7 @@ import java.util.List;
  * @author Gede Karya (gkarya@unpar.ac.id)
  */
 @InfoMataKuliah(nama = "Pemrograman Aplikasi Bergerak", sks = 2)
-public class AIF318 extends MataKuliah implements HasPrasyarat, PilihanWajib, HasPraktikum {
+public class AIF318 extends MataKuliah implements HasPrasyarat, HasPraktikum {
 
 	@Override
 	public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
