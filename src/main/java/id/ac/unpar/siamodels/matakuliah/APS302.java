@@ -4,6 +4,6 @@ import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 
 @InfoMataKuliah(nama = "Dunia Digital Dan Sains", sks = 2)
-public class APS309 extends MataKuliah {
+public class APS302 extends MataKuliah {
 
 }
