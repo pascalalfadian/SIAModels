@@ -40,7 +40,7 @@ public class Kelulusan implements HasPrasyarat {
         boolean bisaLulus = true;
         int sks = mahasiswa.calculateSKSLulus();
         if (sks < MIN_SKS_LULUS) {
-            reasonsContainer.add(String.format("Anda baru mengambil %d SKS, masih kurang %d SKS lagi untuk mencapai %d.", sks, MIN_SKS_LULUS - sks, MIN_SKS_LULUS));
+            reasonsContainer.add(String.format("Anda baru lulus %d SKS, masih kurang %d SKS lagi untuk mencapai %d.", sks, MIN_SKS_LULUS - sks, MIN_SKS_LULUS));
             bisaLulus = false;
         }
         // cek agama
@@ -52,7 +52,7 @@ public class Kelulusan implements HasPrasyarat {
             }
         }
         if (!lulusSalahSatuMKAgama) {
-            reasonsContainer.add("Anda belum mengambil salah satu dari MK Agama " + Arrays.toString(AGAMA));
+            reasonsContainer.add("Anda belum lulus salah satu dari MK Agama " + Arrays.toString(AGAMA));
             bisaLulus = false;
         }
         // cek kuliah wajib
@@ -77,14 +77,13 @@ public class Kelulusan implements HasPrasyarat {
         }
         // cek projek
         if (!mahasiswa.hasLulusKuliah("AIF306") && !mahasiswa.hasLulusKuliah("AIF405")) {
-            reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF306 atau AIF304 & AIF405");
+            reasonsContainer.add("Anda belum lulus salah satu dari MK Proyek AIF306 atau AIF304 & AIF405");
             bisaLulus = false;
         }
         // cek nilai TOEFL
         SortedMap<LocalDate, Integer> toeflScore = mahasiswa.getNilaiTOEFL();
-        if(toeflScore == null)
-        {
-            reasonsContainer.add("Belum mengambil TOEFL.");
+        if(toeflScore == null) {
+            reasonsContainer.add("Belum ada skor TOEFL.");
             bisaLulus = false;
         }
         Collection nilai = toeflScore.values();   
