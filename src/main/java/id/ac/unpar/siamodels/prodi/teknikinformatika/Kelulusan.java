@@ -14,18 +14,20 @@ import java.util.Collection;
 
 public class Kelulusan implements HasPrasyarat {
 
-    public static final String[] PILIHAN_WAJIB = {"AIF311", "AIF312", "AIF313", "AIF314", "AIF315", "AIF316",
-        "AIF317"};
-    public static final String[][] WAJIB = {{"AIF101", "AIF103", "AIF105", "MKU001", "MKU008", "MKU010"},
+    /*public static final String[][] WAJIB_OLD = {{"AIF101", "AIF103", "AIF105", "MKU001", "MKU008", "MKU010"},
     {"AIF102", "AIF104", "AIF106", "AMS100", "MKU009", "MKU011"},
     {"AIF210", "AIF203", "AIF205", "AMS200", "MKU012"}, {"AIF202", "AIF204", "AIF206", "AIF208", "AIF210"},
     {"AIF301", "AIF303", "AIF305", "MKU002"}, {"AIF302"},
-    {"AIF401", "AIF403"}, {"AIF402", "APS402"}};
-    public static final String[] AGAMA = {"MKU003", "MKU004"};
+    {"AIF401", "AIF403"}, {"AIF402", "APS402"}};*/
+    public static final String[][] WAJIB = {{"AIF181101-03", "AIF181103-04", "AIF181105-02","AIF181107-03", "MKU170130-02", "MKU170110-02", "MKU170120-02"},
+            {"AIF181100-04", "AIF181202-04", "AIF181104-03", "AIF181106-03", "MKU170240-02", "MKU170250-02"},
+            {"AIF182101-03", "AIF182103-04", "AIF182105-02", "AIF182007-02", "AIF182109-03", "MKU170360-02"}, {"AIF182100-04", "AIF182302-04", "AIF182204-03", "AIF182206-03", "AIF182308-03"},
+            {"AIF183101-03", "AIF183303-03", "AIF183305-02", "AIF183307-02", "AIF183109-03", "AIF183211-04"},
+            {"AIF183100-03", "AIF183002-02", "AIF183104-03"},
+            {"AIF184001-03", "AIF184005-02"}, {"AIF184002-05", "AIF184000-02"}};
+    public static final String[] AGAMA = {"MKU170370-02", "MKU170380-02"};
 
     public static final int MIN_SKS_LULUS = 144;
-
-    public static final int MIN_PILIHAN_WAJIB = 4;
 
     @Override
     /**
@@ -64,20 +66,9 @@ public class Kelulusan implements HasPrasyarat {
                 }
             }
         }
-        // cek pilihan wajib
-        int lulusPilihanWajib = 0;
-        for (String mkPilihanWajib : PILIHAN_WAJIB) {
-            if (mahasiswa.hasLulusKuliah(mkPilihanWajib)) {
-                lulusPilihanWajib++;
-            }
-        }
-        if (lulusPilihanWajib < MIN_PILIHAN_WAJIB) {
-            reasonsContainer.add(String.format("Anda baru lulus %d MK pilihan wajib, sedangkan Anda perlu lulus %d", lulusPilihanWajib, MIN_PILIHAN_WAJIB));
-            bisaLulus = false;
-        }
         // cek projek
-        if (!mahasiswa.hasLulusKuliah("AIF306") && !mahasiswa.hasLulusKuliah("AIF405")) {
-            reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF306 atau AIF304 & AIF405");
+        if (!mahasiswa.hasLulusKuliah("AIF183106-06") && !mahasiswa.hasLulusKuliah("AIF184303-03")) {
+            reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF183106-06 atau AIF183308-03 & AIF184303-03");
             bisaLulus = false;
         }
         // cek nilai TOEFL
