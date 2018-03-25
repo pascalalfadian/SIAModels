@@ -67,13 +67,8 @@ public class Kelulusan implements HasPrasyarat {
             }
         }
         // cek projek
-<<<<<<< HEAD
         if (!mahasiswa.hasLulusKuliah("AIF183106-06") && !mahasiswa.hasLulusKuliah("AIF184303-03")) {
             reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF183106-06 atau AIF183308-03 & AIF184303-03");
-=======
-        if (!mahasiswa.hasLulusKuliah("AIF306") && !mahasiswa.hasLulusKuliah("AIF405")) {
-            reasonsContainer.add("Anda belum lulus salah satu dari MK Proyek AIF306 atau AIF304 & AIF405");
->>>>>>> a18178161b412ce7da97ab5644d624c2eef3701f
             bisaLulus = false;
         }
         // cek nilai TOEFL
