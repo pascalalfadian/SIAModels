@@ -4,7 +4,7 @@ import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
 
 
-@InfoMataKuliah(nama = "Sistem Pendukung Keputusan", sks = 2)
-public class AIF183390_02 extends MataKuliah {
+@InfoMataKuliah(nama = "Sistem Pendukung Keputusan", sks = 3)
+public class AIF183390_03 extends MataKuliah {
 
 }
