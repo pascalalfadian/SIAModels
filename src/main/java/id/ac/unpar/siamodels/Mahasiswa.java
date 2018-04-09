@@ -122,7 +122,7 @@ public class Mahasiswa {
         int totalSKS = 0;
         // Cari nilai lulus terbaik setiap kuliah
         for (Nilai nilai : riwayatNilai) {
-            if (nilai.getNilaiAkhir() == null) {
+            if (nilai.getNilaiAkhir().equals("")) {
                 continue;
             }
             if (lulusSaja && nilai.getNilaiAkhir().equals('E')) {
@@ -164,7 +164,7 @@ public class Mahasiswa {
         int totalSKS = 0;
         // Cari nilai setiap kuliah
         for (Nilai nilai : riwayatNilai) {
-            if (nilai.getNilaiAkhir() == null) {
+            if (nilai.getNilaiAkhir().equals("")) {
                 continue;
             }
             Double angkaAkhir = nilai.getAngkaAkhir();
@@ -207,14 +207,14 @@ public class Mahasiswa {
         if (riwayatNilai.size() == 0) {
             throw new ArrayIndexOutOfBoundsException("Minimal harus ada satu nilai untuk menghitung IPS");
         }
-        int lastIndex = riwayatNilai.size() - 1;
+        int lastIndex = riwayatNilai.size() - 2;
         TahunSemester tahunSemester = riwayatNilai.get(lastIndex).getTahunSemester();
         double totalNilai = 0;
         double totalSKS = 0;
         for (int i = lastIndex; i >= 0; i--) {
             Nilai nilai = riwayatNilai.get(i);
             if (nilai.tahunSemester.equals(tahunSemester)) {
-                if (nilai.getAngkaAkhir() != null) {
+                if (!nilai.getAngkaAkhir().equals("")) {
                     totalNilai += nilai.getMataKuliah().getSks() * nilai.getAngkaAkhir();
                     totalSKS += nilai.getMataKuliah().getSks();
                 }
@@ -248,10 +248,10 @@ public class Mahasiswa {
         int totalSKS = 0;
         // Tambahkan SKS setiap kuliah
         for (Nilai nilai : riwayatNilai) {
-            if (nilai.getNilaiAkhir() == null) {
+            if (nilai.getNilaiAkhir().equals("")) {
                 continue;
             }
-            if (lulusSaja && nilai.getNilaiAkhir().equals('E')) {
+            if (lulusSaja && nilai.getNilaiAkhir().equals("E")) {
                 continue;
             }
             String kodeMK = nilai.getMataKuliah().getKode();
@@ -291,8 +291,9 @@ public class Mahasiswa {
     public boolean hasLulusKuliah(String kodeMataKuliah) {
         for (Nilai nilai : riwayatNilai) {
             if (nilai.getMataKuliah().getKode().equals(kodeMataKuliah)) {
-                Character na = nilai.getNilaiAkhir();
-                if (na != null && na >= 'A' && na <= 'D') {
+                String na = nilai.getNilaiAkhir();
+                //Character na = nilai.getNilaiAkhir();
+                if (na != null && na.compareTo("A") >= 0 && na.compareTo("D") <= 0) {
                     return true;
                 }
             }
@@ -364,11 +365,11 @@ public class Mahasiswa {
         /**
          * Nilai Akhir
          */
-        protected final Character nilaiAkhir;
+        protected final String nilaiAkhir;
 
         public Nilai(TahunSemester tahunSemester, MataKuliah mataKuliah,
                      Character kelas, Double nilaiART, Double nilaiUTS, Double nilaiUAS,
-                     Character nilaiAkhir) {
+                     String nilaiAkhir) {
             super();
             this.tahunSemester = tahunSemester;
             this.mataKuliah = mataKuliah;
@@ -400,11 +401,11 @@ public class Mahasiswa {
         }
 
         /**
-         * Mengembalikan nilai akhir dalam bentuk huruf (A, B, C, D, ..., atau K)
+         * Mengembalikan nilai akhir dalam bentuk huruf (A, A-, B+, B, B-, C+, C, C-, D, ..., atau K)
          *
          * @return nilai akhir dalam huruf, atau null jika tidak ada.
          */
-        public Character getNilaiAkhir() {
+        public String getNilaiAkhir() {
             return nilaiAkhir;
         }
 
@@ -418,27 +419,27 @@ public class Mahasiswa {
                 return null;
             }
             switch (nilaiAkhir) {
-                case 'A':
+                case "A":
                     return 4.0;
-                case 'A-':
+                case "A-":
                     return 3.67;
-                case 'B+':
+                case "B+":
                     return 3.33;
-                case 'B':
+                case "B":
                     return 3.0;
-                case 'B-':
+                case "B-":
                     return 2.67;
-                case 'C+':
+                case "C+":
                     return 2.33;
-                case 'C':
+                case "C":
                     return 2.0;
-                case 'C-':
+                case "C-":
                     return 1.67;
-                case 'D':
+                case "D":
                     return 1.0;
-                case 'E':
+                case "E":
                     return 0.0;
-                case 'K':
+                case "K":
                     return null;
             }
             return null;
