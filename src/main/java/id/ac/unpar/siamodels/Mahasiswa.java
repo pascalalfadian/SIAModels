@@ -392,7 +392,7 @@ public class Mahasiswa {
 			switch (nilaiAkhir) {
 			case "A":
 				return 4.0;
-			case "A-": 
+			case "A-":
 				return 3.67;
 			case "B+":
 				return 3.33;
