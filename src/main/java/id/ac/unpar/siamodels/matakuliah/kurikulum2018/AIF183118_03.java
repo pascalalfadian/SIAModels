@@ -8,8 +8,8 @@ import id.ac.unpar.siamodels.Mahasiswa;
 import java.util.List;
 
 
-@InfoMataKuliah(nama = "Komputasi Geometri", sks = 2)
-public class AIF183118_02 extends MataKuliah implements HasPrasyarat{
+@InfoMataKuliah(nama = "Komputasi Geometri", sks = 3)
+public class AIF183118_03 extends MataKuliah implements HasPrasyarat{
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {

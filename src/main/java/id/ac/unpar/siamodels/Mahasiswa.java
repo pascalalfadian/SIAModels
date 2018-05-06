@@ -208,7 +208,7 @@ public class Mahasiswa {
 		for (int i = lastIndex; i >= 0; i--) {
 			Nilai nilai = riwayatNilai.get(i);
 			if (nilai.tahunSemester.equals(tahunSemester)) {
-				if (!nilai.getAngkaAkhir().equals("")) {
+				if (nilai.getAngkaAkhir() != null) {
 					totalNilai += nilai.getMataKuliah().getSks() * nilai.getAngkaAkhir();
 					totalSKS += nilai.getMataKuliah().getSks();
 				}
@@ -386,7 +386,7 @@ public class Mahasiswa {
 		 * @return nilai akhir dalam angka, atau null jika {@link #getNilaiAkhir() mengembalikan 'K' atau null}
 		 */
 		public Double getAngkaAkhir() {
-			if (nilaiAkhir == null) {
+			if (nilaiAkhir.equals("")) {
 				return null;
 			}
 			switch (nilaiAkhir) {
