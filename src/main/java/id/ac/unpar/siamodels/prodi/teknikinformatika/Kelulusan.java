@@ -15,7 +15,7 @@ import java.util.Collection;
 public class Kelulusan implements HasPrasyarat {
 
     public static final String[] PILIHAN_WAJIB = {"AIF311", "AIF312", "AIF313", "AIF314", "AIF315", "AIF316",
-        "AIF317"};
+        "AIF317", "AIF318"};
     public static final String[][] WAJIB = {{"AIF101", "AIF103", "AIF105", "MKU001", "MKU008", "MKU010"},
     {"AIF102", "AIF104", "AIF106", "AMS100", "MKU009", "MKU011"},
     {"AIF210", "AIF203", "AIF205", "AMS200", "MKU012"}, {"AIF202", "AIF204", "AIF206", "AIF208", "AIF210"},
