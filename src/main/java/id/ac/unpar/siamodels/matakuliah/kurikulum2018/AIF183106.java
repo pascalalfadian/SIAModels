@@ -14,8 +14,8 @@ public class AIF183106 extends MataKuliah implements HasPrasyarat{
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
         boolean ok = true;
-        if (!mahasiswa.hasTempuhKuliah("AIF183303-03")) {
-            reasonsContainer.add("Tidak memenuhi prasyarat tempuh AIF183303-03");
+        if (!mahasiswa.hasTempuhKuliah("AIF183303") && !mahasiswa.hasTempuhKuliah("AIF183305")) {
+            reasonsContainer.add("Tidak memenuhi prasyarat tempuh AIF183303 atau AIF183305");
             ok = false;
         }
         return ok;

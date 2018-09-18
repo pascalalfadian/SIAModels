@@ -14,16 +14,15 @@ import java.util.Collection;
 
 public class Kelulusan implements HasPrasyarat {
 
-<<<<<<< HEAD
-    public static final String[] PILIHAN_WAJIB = {"AIF311", "AIF312", "AIF313", "AIF314", "AIF315", "AIF316",
-        "AIF317", "AIF318"};
-    public static final String[][] WAJIB = {{"AIF101", "AIF103", "AIF105", "MKU001", "MKU008", "MKU010"},
-    {"AIF102", "AIF104", "AIF106", "AMS100", "MKU009", "MKU011"},
-    {"AIF210", "AIF203", "AIF205", "AMS200", "MKU012"}, {"AIF202", "AIF204", "AIF206", "AIF208", "AIF210"},
-    {"AIF301", "AIF303", "AIF305", "MKU002"}, {"AIF302"},
-    {"AIF401", "AIF403"}, {"AIF402", "APS402"}};
-    public static final String[] AGAMA = {"MKU003", "MKU004"};
-=======
+//    public static final String[] PILIHAN_WAJIB = {"AIF311", "AIF312", "AIF313", "AIF314", "AIF315", "AIF316",
+//        "AIF317", "AIF318"};
+//    public static final String[][] WAJIB = {{"AIF101", "AIF103", "AIF105", "MKU001", "MKU008", "MKU010"},
+//    {"AIF102", "AIF104", "AIF106", "AMS100", "MKU009", "MKU011"},
+//    {"AIF210", "AIF203", "AIF205", "AMS200", "MKU012"}, {"AIF202", "AIF204", "AIF206", "AIF208", "AIF210"},
+//    {"AIF301", "AIF303", "AIF305", "MKU002"}, {"AIF302"},
+//    {"AIF401", "AIF403"}, {"AIF402", "APS402"}};
+//    public static final String[] AGAMA = {"MKU003", "MKU004"};
+
     public static final String[][] WAJIB = {{"AIF181101-03", "AIF181103-04", "AIF181105-02","AIF181107-03", "MKU170130-02", "MKU170110-02", "MKU170120-02"},
             {"AIF181100-04", "AIF181202-04", "AIF181104-03", "AIF181106-03", "MKU170240-02", "MKU170250-02"},
             {"AIF182101-03", "AIF182103-04", "AIF182105-02", "AIF182007-02", "AIF182109-03", "MKU170360-02"},
@@ -31,7 +30,6 @@ public class Kelulusan implements HasPrasyarat {
             {"AIF183101-03", "AIF183303-03", "AIF183305-02", "AIF183307-02", "AIF183109-03", "AIF183211-04"},
             {"AIF183100-03", "AIF183002-02", "AIF183104-03"},
             {"AIF184005-02"}, {"AIF184000-02"}};
->>>>>>> 787aed3da569219cceaf80685a30afe915ad304d
 
     public static final String[] AGAMA = {"MKU170370-02", "MKU170380-02"};
 

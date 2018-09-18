@@ -5,6 +5,6 @@ import id.ac.unpar.siamodels.MataKuliah;
 
 
 @InfoMataKuliah(nama = "Bahasa Inggris", sks = 2)
-public class AIF130010 extends MataKuliah {
+public class MKU130010 extends MataKuliah {
 
 }

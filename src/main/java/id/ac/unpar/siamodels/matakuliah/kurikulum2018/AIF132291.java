@@ -5,6 +5,6 @@ import id.ac.unpar.siamodels.MataKuliah;
 
 
 @InfoMataKuliah(nama = "Analisis Desain Berorientasi Objek", sks = 3)
-public class AIF182291 extends MataKuliah {
+public class AIF132291 extends MataKuliah {
 
 }

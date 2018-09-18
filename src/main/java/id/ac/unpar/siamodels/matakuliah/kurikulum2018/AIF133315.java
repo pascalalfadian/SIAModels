@@ -5,6 +5,6 @@ import id.ac.unpar.siamodels.MataKuliah;
 
 
 @InfoMataKuliah(nama = "Pemrograman Berbasis Web", sks = 2)
-public class AIF1833315 extends MataKuliah {
+public class AIF133315 extends MataKuliah {
 
 }

@@ -9,13 +9,13 @@ import java.util.List;
 
 
 @InfoMataKuliah(nama = "Pemrograman Kompetitif 2", sks = 3)
-public class AIF18212 extends MataKuliah implements HasPraktikum, HasPrasyarat{
+public class AIF182112 extends MataKuliah implements HasPraktikum, HasPrasyarat{
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
         boolean ok = true;
-        if (!mahasiswa.hasLulusKuliah("AIF182101")) {
-            reasonsContainer.add("Tidak memenuhi prasyarat lulus AIF182101");
+        if (!mahasiswa.hasLulusKuliah("AIF182111")) {
+            reasonsContainer.add("Tidak memenuhi prasyarat lulus AIF182111");
             ok = false;
         }
         return ok;

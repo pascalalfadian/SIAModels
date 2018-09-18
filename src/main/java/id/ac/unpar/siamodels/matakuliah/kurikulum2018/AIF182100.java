@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @InfoMataKuliah(nama = "Analisis dan Desain Perangkat Lunak", sks = 4)
-public class AIF182100_04 extends MataKuliah implements HasPraktikum, HasPrasyarat, HasResponsi{
+public class AIF182100 extends MataKuliah implements HasPrasyarat, HasResponsi{
 
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
