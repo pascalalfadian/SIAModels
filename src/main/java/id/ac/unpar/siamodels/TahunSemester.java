@@ -46,6 +46,12 @@ public final class TahunSemester implements Comparable<TahunSemester> {
 		validateKodeSemester(kodeTahunSemester);
 		this.kodeTahunSemester = kodeTahunSemester;
 	}
+
+	public TahunSemester(int tahun, char kodeSemester) throws IllegalArgumentException {
+		String kodeTahunSemester = ("" + tahun).substring(2, 4) + kodeSemester;
+		validateKodeSemester(kodeTahunSemester);
+		this.kodeTahunSemester = kodeTahunSemester;
+	}
 	
 	public Semester getSemester() {
 		switch (kodeTahunSemester.charAt(2)) {

@@ -329,48 +329,18 @@ public class Mahasiswa {
 		protected final TahunSemester tahunSemester;
 		/** Mata kuliah yang diambil */
 		protected final MataKuliah mataKuliah;
-		/** Kelas kuliah */
-		protected final Character kelas;
-		/** Nilai ART */
-		protected final Double nilaiART;
-		/** Nilai UTS */
-		protected final Double nilaiUTS;
-		/** Nilai UAS */
-		protected final Double nilaiUAS;
 		/** Nilai Akhir */
 		protected final String nilaiAkhir;
 
-		public Nilai(TahunSemester tahunSemester, MataKuliah mataKuliah,
-				Character kelas, Double nilaiART, Double nilaiUTS, Double nilaiUAS,
-				String nilaiAkhir) {
+		public Nilai(TahunSemester tahunSemester, MataKuliah mataKuliah, String nilaiAkhir) {
 			super();
 			this.tahunSemester = tahunSemester;
 			this.mataKuliah = mataKuliah;
-			this.kelas = kelas;
-			this.nilaiART = nilaiART;
-			this.nilaiUTS = nilaiUTS;
-			this.nilaiUAS = nilaiUAS;
 			this.nilaiAkhir = nilaiAkhir;
 		}
 
 		public MataKuliah getMataKuliah() {
 			return mataKuliah;
-		}
-
-		public Character getKelas() {
-			return kelas;
-		}
-
-		public Double getNilaiART() {
-			return nilaiART;
-		}
-
-		public Double getNilaiUTS() {
-			return nilaiUTS;
-		}
-
-		public Double getNilaiUAS() {
-			return nilaiUAS;
 		}
 
 		/**
@@ -430,8 +400,7 @@ public class Mahasiswa {
 
 		@Override
 		public String toString() {
-			return "Nilai [tahunSemester=" + tahunSemester + ", mataKuliah=" + mataKuliah + ", kelas=" + kelas
-					+ ", nilaiART=" + nilaiART + ", nilaiUTS=" + nilaiUTS + ", nilaiUAS=" + nilaiUAS + ", nilaiAkhir="
+			return "Nilai [tahunSemester=" + tahunSemester + ", mataKuliah=" + mataKuliah + ", nilaiAkhir="
 					+ nilaiAkhir + "]";
 		}
 

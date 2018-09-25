@@ -14,24 +14,15 @@ import java.util.Collection;
 
 public class Kelulusan implements HasPrasyarat {
 
-//    public static final String[] PILIHAN_WAJIB = {"AIF311", "AIF312", "AIF313", "AIF314", "AIF315", "AIF316",
-//        "AIF317", "AIF318"};
-//    public static final String[][] WAJIB = {{"AIF101", "AIF103", "AIF105", "MKU001", "MKU008", "MKU010"},
-//    {"AIF102", "AIF104", "AIF106", "AMS100", "MKU009", "MKU011"},
-//    {"AIF210", "AIF203", "AIF205", "AMS200", "MKU012"}, {"AIF202", "AIF204", "AIF206", "AIF208", "AIF210"},
-//    {"AIF301", "AIF303", "AIF305", "MKU002"}, {"AIF302"},
-//    {"AIF401", "AIF403"}, {"AIF402", "APS402"}};
-//    public static final String[] AGAMA = {"MKU003", "MKU004"};
+    public static final String[][] WAJIB = {{"AIF181101", "AIF181103", "AIF181105","AIF181107", "MKU180130", "MKU180110", "MKU180120"},
+            {"AIF181100", "AIF181202", "AIF181104", "AIF181106", "MKU180240", "MKU180250"},
+            {"AIF182101", "AIF182103", "AIF182105", "AIF182007", "AIF182109", "MKU180360"},
+            {"AIF182100", "AIF182302", "AIF182204", "AIF182106", "AIF182308", "AIF182210"},
+            {"AIF183201", "AIF183303", "AIF183305", "AIF183107", "AIF183209", "AIF183111"},
+            {"AIF183300", "AIF183002", "AIF183204"},
+            {"AIF184005"}, {"AIF184000"}};
 
-    public static final String[][] WAJIB = {{"AIF181101-03", "AIF181103-04", "AIF181105-02","AIF181107-03", "MKU170130-02", "MKU170110-02", "MKU170120-02"},
-            {"AIF181100-04", "AIF181202-04", "AIF181104-03", "AIF181106-03", "MKU170240-02", "MKU170250-02"},
-            {"AIF182101-03", "AIF182103-04", "AIF182105-02", "AIF182007-02", "AIF182109-03", "MKU170360-02"},
-            {"AIF182100-04", "AIF182302-04", "AIF182204-03", "AIF182206-03", "AIF182308-03"},
-            {"AIF183101-03", "AIF183303-03", "AIF183305-02", "AIF183307-02", "AIF183109-03", "AIF183211-04"},
-            {"AIF183100-03", "AIF183002-02", "AIF183104-03"},
-            {"AIF184005-02"}, {"AIF184000-02"}};
-
-    public static final String[] AGAMA = {"MKU170370-02", "MKU170380-02"};
+    public static final String[] AGAMA = {"MKU180370", "MKU180380"};
 
     public static final int MIN_SKS_LULUS = 144;
 
@@ -73,13 +64,13 @@ public class Kelulusan implements HasPrasyarat {
             }
         }
         // cek projek
-        if (!mahasiswa.hasLulusKuliah("AIF183106-06") && !mahasiswa.hasLulusKuliah("AIF184303-03")) {
-            reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF183106-06 atau AIF183308-03 & AIF184303-03");
+        if (!mahasiswa.hasLulusKuliah("AIF183106") && !mahasiswa.hasLulusKuliah("AIF184303")) {
+            reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF183106 atau AIF183308 & AIF184303");
             bisaLulus = false;
         }
         //cek skripsi atau tugas akhir
-        if (!mahasiswa.hasLulusKuliah("AIF184002-5") && !mahasiswa.hasLulusKuliah("AIF184004-08")) {
-            reasonsContainer.add("Anda belum mengambil MK AIF184001-03 & AIF184002-05 atau AIF184004-08");
+        if (!mahasiswa.hasLulusKuliah("AIF184002") && !mahasiswa.hasLulusKuliah("AIF184004")) {
+            reasonsContainer.add("Anda belum mengambil MK AIF184001 & AIF184002 atau AIF184004");
             bisaLulus = false;
         }
         // cek nilai TOEFL
