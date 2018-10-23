@@ -17,6 +17,7 @@ public class Mahasiswa {
 	protected String nama;
 	protected final List<Nilai> riwayatNilai;
 	protected URL photoURL;
+	protected String photoPath;
 	protected List<JadwalKuliah> jadwalKuliahList;
 	protected SortedMap<LocalDate, Integer> nilaiTOEFL;
 	
@@ -47,6 +48,14 @@ public class Mahasiswa {
 
 	public void setPhotoURL(URL photoURL) {
 		this.photoURL = photoURL;
+	}
+
+	public String getPhotoPath() {
+		return photoPath;
+	}
+
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
 	}
 	
 	public List<JadwalKuliah> getJadwalKuliahList() {
