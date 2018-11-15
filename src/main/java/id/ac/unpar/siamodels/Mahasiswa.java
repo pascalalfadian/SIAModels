@@ -67,7 +67,11 @@ public class Mahasiswa {
 	}
 
 	public String getEmailAddress() {
-		return npm.substring(4, 6) + npm.substring(2, 4) + npm.substring(7, 10) + "@student.unpar.ac.id";
+		if (npm.contains("2017")){
+			return npm + "@student.unpar.ac.id";
+		} else {
+			return npm.substring(4, 6) + npm.substring(2, 4) + npm.substring(7, 10) + "@student.unpar.ac.id";
+		}
 	}
 	
 	public List<Nilai> getRiwayatNilai() {
