@@ -152,7 +152,7 @@ public class Kelulusan implements HasPrasyarat {
             }
         }
         // cek projek
-        if (!mahasiswa.hasLulusKuliah("AIF183106") && !mahasiswa.hasLulusKuliah("AIF184303") && !mahasiswa.hasLulusKuliah("AIF134405")) {
+        if (!mahasiswa.hasLulusKuliah("AIF183106") && !mahasiswa.hasLulusKuliah("AIF184303")) {
             reasonsContainer.add("Anda belum mengambil salah satu dari MK Proyek AIF183106 atau AIF183308 & AIF184303");
             bisaLulus = false;
         }
