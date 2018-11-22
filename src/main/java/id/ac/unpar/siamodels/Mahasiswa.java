@@ -16,7 +16,6 @@ public class Mahasiswa {
 	protected final String npm;
 	protected String nama;
 	protected final List<Nilai> riwayatNilai;
-	protected URL photoURL;
 	protected String photoPath;
 	protected List<JadwalKuliah> jadwalKuliahList;
 	protected SortedMap<LocalDate, Integer> nilaiTOEFL;
@@ -40,14 +39,6 @@ public class Mahasiswa {
 
 	public String getNpm() {
 		return npm;
-	}
-	
-	public URL getPhotoURL() {
-		return photoURL;
-	}
-
-	public void setPhotoURL(URL photoURL) {
-		this.photoURL = photoURL;
 	}
 
 	public String getPhotoPath() {
