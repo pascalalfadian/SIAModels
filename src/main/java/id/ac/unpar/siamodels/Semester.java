@@ -13,7 +13,7 @@ public enum Semester {
 		this.order = order;
 	}
 	
-	int getOrder() {
+	public int getOrder() {
 		return order;
 	}
 	

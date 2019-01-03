@@ -17,7 +17,7 @@ public class MataKuliahFactory {
 	/**
 	 * Lokasi package untuk daftar mata kuliah
 	 */
-	public static String DEFAULT_MATAKULIAH_PACKAGE = "id.ac.unpar.siamodels.matakuliah";
+	public static String DEFAULT_MATAKULIAH_PACKAGE = "id.ac.unpar.siamodels.matakuliah.kurikulum2018";
 
 	/**
 	 * Singleton instance to factory.

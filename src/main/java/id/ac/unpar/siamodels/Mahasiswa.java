@@ -16,7 +16,7 @@ public class Mahasiswa {
 	protected final String npm;
 	protected String nama;
 	protected final List<Nilai> riwayatNilai;
-	protected URL photoURL;
+	protected String photoPath;
 	protected List<JadwalKuliah> jadwalKuliahList;
 	protected SortedMap<LocalDate, Integer> nilaiTOEFL;
 	
@@ -40,13 +40,13 @@ public class Mahasiswa {
 	public String getNpm() {
 		return npm;
 	}
-	
-	public URL getPhotoURL() {
-		return photoURL;
+
+	public String getPhotoPath() {
+		return photoPath;
 	}
 
-	public void setPhotoURL(URL photoURL) {
-		this.photoURL = photoURL;
+	public void setPhotoPath(String photoPath) {
+		this.photoPath = photoPath;
 	}
 	
 	public List<JadwalKuliah> getJadwalKuliahList() {
@@ -58,7 +58,11 @@ public class Mahasiswa {
 	}
 
 	public String getEmailAddress() {
-		return npm.substring(4, 6) + npm.substring(2, 4) + npm.substring(7, 10) + "@student.unpar.ac.id";
+		if (npm.matches("[2]{1}[0]{1}\\d{8}") && Integer.parseInt(npm.substring(0,4)) < 2017){
+			return npm.substring(4, 6) + npm.substring(2, 4) + npm.substring(7, 10) + "@student.unpar.ac.id";
+		} else {
+			return npm + "@student.unpar.ac.id";
+		}
 	}
 	
 	public List<Nilai> getRiwayatNilai() {
@@ -119,10 +123,10 @@ public class Mahasiswa {
 		int totalSKS = 0;
 		// Cari nilai lulus terbaik setiap kuliah
 		for (Nilai nilai: riwayatNilai) {
-			if (nilai.getNilaiAkhir() == null) {
+			if (nilai.getNilaiAkhir().equals("")) {
 				continue;
 			}
-			if (lulusSaja && nilai.getNilaiAkhir().equals('E')) {
+			if (lulusSaja && nilai.getNilaiAkhir().equals("E")) {
 				continue;
 			}
 			String kodeMK = nilai.getMataKuliah().getKode();
@@ -160,7 +164,7 @@ public class Mahasiswa {
 		int totalSKS = 0;
 		// Cari nilai setiap kuliah
 		for (Nilai nilai: riwayatNilai) {
-			if (nilai.getNilaiAkhir() == null) {
+			if (nilai.getNilaiAkhir().equals("")) {
 				continue;
 			}
 			Double angkaAkhir = nilai.getAngkaAkhir();
@@ -240,10 +244,10 @@ public class Mahasiswa {
 		int totalSKS = 0;
 		// Tambahkan SKS setiap kuliah
 		for (Nilai nilai: riwayatNilai) {
-			if (nilai.getNilaiAkhir() == null) {
+			if (nilai.getNilaiAkhir().equals("")) {
 				continue;
 			}
-			if (lulusSaja && nilai.getNilaiAkhir().equals('E')) {
+			if (lulusSaja && nilai.getNilaiAkhir().equals("E")) {
 				continue;
 			}
 			String kodeMK = nilai.getMataKuliah().getKode();
@@ -281,13 +285,24 @@ public class Mahasiswa {
 	public boolean hasLulusKuliah(String kodeMataKuliah) {
 		for (Nilai nilai: riwayatNilai) {
 			if (nilai.getMataKuliah().getKode().equals(kodeMataKuliah)) {
-				Character na = nilai.getNilaiAkhir();
-				if (na != null && na >= 'A' && na <= 'D') {
+				String na = nilai.getNilaiAkhir();
+				if (!na.equals("") && na.compareTo("A") >= 0 && na.compareTo("D") <= 0) {
 					return true;
 				}
 			}
 		}
 		return false;
+	}
+
+	public Double getNilaiAkhirMataKuliah(String kodeMataKuliah){
+		Double aa = 0.0;
+		for (Nilai nilai: riwayatNilai) {
+			if (nilai.getMataKuliah().getKode().equals(kodeMataKuliah)) {
+				aa = nilai.getAngkaAkhir();
+				return aa;
+			}
+		}
+		return aa;
 	}
 
 	/**
@@ -329,27 +344,13 @@ public class Mahasiswa {
 		protected final TahunSemester tahunSemester;
 		/** Mata kuliah yang diambil */
 		protected final MataKuliah mataKuliah;
-		/** Kelas kuliah */
-		protected final Character kelas;
-		/** Nilai ART */
-		protected final Double nilaiART;
-		/** Nilai UTS */
-		protected final Double nilaiUTS;
-		/** Nilai UAS */
-		protected final Double nilaiUAS;
 		/** Nilai Akhir */
-		protected final Character nilaiAkhir;
+		protected final String nilaiAkhir;
 
-		public Nilai(TahunSemester tahunSemester, MataKuliah mataKuliah,
-				Character kelas, Double nilaiART, Double nilaiUTS, Double nilaiUAS,
-				Character nilaiAkhir) {
+		public Nilai(TahunSemester tahunSemester, MataKuliah mataKuliah, String nilaiAkhir) {
 			super();
 			this.tahunSemester = tahunSemester;
 			this.mataKuliah = mataKuliah;
-			this.kelas = kelas;
-			this.nilaiART = nilaiART;
-			this.nilaiUTS = nilaiUTS;
-			this.nilaiUAS = nilaiUAS;
 			this.nilaiAkhir = nilaiAkhir;
 		}
 
@@ -357,27 +358,11 @@ public class Mahasiswa {
 			return mataKuliah;
 		}
 
-		public Character getKelas() {
-			return kelas;
-		}
-
-		public Double getNilaiART() {
-			return nilaiART;
-		}
-
-		public Double getNilaiUTS() {
-			return nilaiUTS;
-		}
-
-		public Double getNilaiUAS() {
-			return nilaiUAS;
-		}
-
 		/**
 		 * Mengembalikan nilai akhir dalam bentuk huruf (A, B, C, D, ..., atau K)
 		 * @return nilai akhir dalam huruf, atau null jika tidak ada.
 		 */
-		public Character getNilaiAkhir() {
+		public String getNilaiAkhir() {
 			return nilaiAkhir;
 		}
 		
@@ -386,21 +371,31 @@ public class Mahasiswa {
 		 * @return nilai akhir dalam angka, atau null jika {@link #getNilaiAkhir() mengembalikan 'K' atau null}
 		 */
 		public Double getAngkaAkhir() {
-			if (nilaiAkhir == null) {
+			if (nilaiAkhir.equals("")) {
 				return null;
 			}
 			switch (nilaiAkhir) {
-			case 'A':
+			case "A":
 				return 4.0;
-			case 'B':
+			case "A-":
+				return 3.67;
+			case "B+":
+				return 3.33;
+			case "B":
 				return 3.0;
-			case 'C':
+			case "B-":
+				return 2.67;
+			case "C+":
+				return 2.33;
+			case "C":
 				return 2.0;
-			case 'D':
+			case "C-":
+				return 1.67;
+			case "D":
 				return 1.0;
-			case 'E':
+			case "E":
 				return 0.0;
-			case 'K':
+			case "K":
 				return null;
 			}
 			return null;
@@ -420,8 +415,7 @@ public class Mahasiswa {
 
 		@Override
 		public String toString() {
-			return "Nilai [tahunSemester=" + tahunSemester + ", mataKuliah=" + mataKuliah + ", kelas=" + kelas
-					+ ", nilaiART=" + nilaiART + ", nilaiUTS=" + nilaiUTS + ", nilaiUAS=" + nilaiUAS + ", nilaiAkhir="
+			return "Nilai [tahunSemester=" + tahunSemester + ", mataKuliah=" + mataKuliah + ", nilaiAkhir="
 					+ nilaiAkhir + "]";
 		}
 
