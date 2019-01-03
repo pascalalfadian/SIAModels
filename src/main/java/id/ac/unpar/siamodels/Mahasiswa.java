@@ -294,6 +294,17 @@ public class Mahasiswa {
 		return false;
 	}
 
+	public Double getNilaiAkhirMataKuliah(String kodeMataKuliah){
+		Double aa = 0.0;
+		for (Nilai nilai: riwayatNilai) {
+			if (nilai.getMataKuliah().getKode().equals(kodeMataKuliah)) {
+				aa = nilai.getAngkaAkhir();
+				return aa;
+			}
+		}
+		return aa;
+	}
+
 	/**
 	 * Memeriksa apakah mahasiswa ini sudah pernah menempuh mata kuliah tertentu. Kompleksitas O(n).
 	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah ada isinya!
