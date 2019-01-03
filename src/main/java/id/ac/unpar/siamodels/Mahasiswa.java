@@ -58,10 +58,10 @@ public class Mahasiswa {
 	}
 
 	public String getEmailAddress() {
-		if (npm.contains("2017")){
-			return npm + "@student.unpar.ac.id";
-		} else {
+		if (npm.matches("[2]{1}[0]{1}\\d{8}") && Integer.parseInt(npm.substring(0,4)) < 2017){
 			return npm.substring(4, 6) + npm.substring(2, 4) + npm.substring(7, 10) + "@student.unpar.ac.id";
+		} else {
+			return npm + "@student.unpar.ac.id";
 		}
 	}
 	
