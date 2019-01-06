@@ -14,7 +14,7 @@ public class AIF183121 extends MataKuliah implements HasPraktikum, HasPrasyarat{
     @Override
     public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer) {
         boolean ok = true;
-        if (!mahasiswa.hasLulusKuliah("AIF182112") && mahasiswa.getNilaiAkhirMataKuliah("AIF182112") >= 3.0) {
+        if (!mahasiswa.hasLulusKuliah("AIF182112") && mahasiswa.getNilaiAkhirMataKuliah("AIF182112") < 3.0) {
             reasonsContainer.add("Tidak memenuhi prasyarat lulus AIF182112 (minimum B)");
             ok = false;
         }
