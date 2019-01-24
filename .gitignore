@@ -16,3 +16,5 @@ hs_err_pid*
 target/
 /.project
 /.classpath
+/SIAModels (NB ver.)/nbproject/private/
+/SIAModels (NetBeans ver.)/nbproject/private/
