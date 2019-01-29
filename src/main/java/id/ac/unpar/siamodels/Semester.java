@@ -1,4 +1,4 @@
-package id.ac.unpar.siamodels;
+//package id.ac.unpar.siamodels;
 
 public enum Semester {
 	UNKNOWN5(5), TRANSFER(6), PENDEK(10), GANJIL(20), GENAP(30);
