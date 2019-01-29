@@ -1,4 +1,4 @@
-package id.ac.unpar.siamodels;
+//package id.ac.unpar.siamodels;
 
 public class Dosen {
 	private String nik;

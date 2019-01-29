@@ -1,6 +1,5 @@
-package id.ac.unpar.siamodels;
 
-public abstract class MataKuliah {
+public class MataKuliah {
 	private final String kode;
 	private final String nama;
 	private final Integer sks;
@@ -34,4 +33,15 @@ public abstract class MataKuliah {
 	public Integer getSks() {
 		return sks;
 	}
+        
+        @Override
+        public boolean equals(Object o) {
+            //return toString().equals(o.toString());
+            boolean hasil = true;
+            MataKuliah mk = (MataKuliah) o;
+            if(mk.kode.compareTo(this.kode)!=0) hasil = false;
+            if(mk.sks != this.sks) hasil = false;
+            if(mk.nama.compareTo(this.nama)!=0) hasil = false;
+            return hasil;
+        }
 }
