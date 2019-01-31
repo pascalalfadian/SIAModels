@@ -1,4 +1,3 @@
-package id.ac.unpar.siamodels;
 
 public class MataKuliah {
 	private final String kode;
