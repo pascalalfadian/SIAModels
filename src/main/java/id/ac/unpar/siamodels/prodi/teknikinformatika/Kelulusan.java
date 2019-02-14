@@ -166,26 +166,27 @@ public class Kelulusan implements HasPrasyarat {
         if(toeflScore == null) {
             reasonsContainer.add("Belum ada skor TOEFL.");
             bisaLulus = false;
-        }
-        Collection nilai = toeflScore.values();   
-        int maxToefl = 0;
-        Iterator i = nilai.iterator();
-        while (i.hasNext()) {
-            int val = (int) i.next();
-            if (maxToefl < val) {
-                maxToefl = val;
+        } else {
+            Collection nilai = toeflScore.values();   
+            int maxToefl = 0;
+            Iterator i = nilai.iterator();
+            while (i.hasNext()) {
+                int val = (int) i.next();
+                if (maxToefl < val) {
+                    maxToefl = val;
+                }
             }
-        }
-        if (!(maxToefl >= 500)) {
-            if (toeflScore.size() <= 8) {
-                reasonsContainer.add("Belum mencapai nilai TOEFL sebesar 500.");
-                bisaLulus = false;
-            } else {
-                if (maxToefl < 450) {
-                    reasonsContainer.add("Belum mencapai nilai TOEFL sebesar 450.");
+            if (!(maxToefl >= 500)) {
+                if (toeflScore.size() <= 8) {
+                    reasonsContainer.add("Belum mencapai nilai TOEFL sebesar 500.");
                     bisaLulus = false;
                 } else {
-                    reasonsContainer.add("Sudah lulus TOEFL dengan nilai " + maxToefl + " dan memerlukan dispensasi dari rektor karena sudah mengambil tes TOEFL sebanyak "+toeflScore.size()+" kali.");
+                    if (maxToefl < 450) {
+                        reasonsContainer.add("Belum mencapai nilai TOEFL sebesar 450.");
+                        bisaLulus = false;
+                    } else {
+                        reasonsContainer.add("Sudah lulus TOEFL dengan nilai " + maxToefl + " dan memerlukan dispensasi dari rektor karena sudah mengambil tes TOEFL sebanyak "+toeflScore.size()+" kali.");
+                    }
                 }
             }
         }
