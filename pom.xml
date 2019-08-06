@@ -5,6 +5,24 @@
     <artifactId>SIAModels</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>SIA Models</name>
+    <description>
+        This library models various aspects of Universitas Katolik Parahyangan's
+        objects, such as mahasiswa (student), their modules, and their grades.
+        Theoretically supports all departments, but only Informatics department
+        is mostly complete.
+    </description>
+    <url>https://github.com/pascalalfadian/SIAModels</url>
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>https://github.com/pascalalfadian/SIAModels/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/pascalalfadian/SIAModels</url>
+    </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
