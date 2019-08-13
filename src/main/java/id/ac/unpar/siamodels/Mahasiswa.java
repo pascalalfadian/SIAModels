@@ -478,4 +478,31 @@ public class Mahasiswa {
 			}
 		}
 	}
+
+	public static enum Status {
+		SEMUA("00"),
+		AKTIF("01"),
+		GENCAT("02"),
+		CUTI_SEBELUM_FRS("03"),
+		CUTI_SETELAH_FRS("04"),
+		KELUAR("05"),
+		LULUS("06"),
+		DROP_OUT("07"),
+		SISIPAN("08");
+		private final String siakadCode;
+		Status(String siakadCode) {
+			this.siakadCode = siakadCode;
+		}
+		String getSIAKADCode() {
+			return this.siakadCode;
+		}
+		static Status fromSIAKADCode(String siakadCode) {
+			for (Status status: Status.values()) {
+				if (status.getSIAKADCode().equals(siakadCode)) {
+					return status;
+				}
+			}
+			return null;
+		}
+	}
 }
