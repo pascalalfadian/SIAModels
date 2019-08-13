@@ -479,6 +479,9 @@ public class Mahasiswa {
 		}
 	}
 
+	/**
+	 * Status dari mahasiswa
+	 */
 	public static enum Status {
 		SEMUA("00"),
 		AKTIF("01"),
@@ -490,14 +493,26 @@ public class Mahasiswa {
 		DROP_OUT("07"),
 		SISIPAN("08");
 		private final String siakadCode;
+
 		Status(String siakadCode) {
 			this.siakadCode = siakadCode;
 		}
-		String getSIAKADCode() {
+
+		/**
+		 * Mendapatkan kode pada SIAKAD
+		 * @return kode SIAKAD
+		 */
+		public String getSIAKADCode() {
 			return this.siakadCode;
 		}
-		static Status fromSIAKADCode(String siakadCode) {
-			for (Status status: Status.values()) {
+
+		/**
+		 * Mendapatkan enum yang sesuai dari kode SIAKAD nya
+		 * @param siakadCode kode SIAKAD
+		 * @return enum yang sesuai
+		 */
+		public static Status fromSIAKADCode(String siakadCode) {
+			for (Status status : Status.values()) {
 				if (status.getSIAKADCode().equals(siakadCode)) {
 					return status;
 				}
