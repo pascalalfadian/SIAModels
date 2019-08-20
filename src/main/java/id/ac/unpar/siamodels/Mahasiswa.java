@@ -383,6 +383,22 @@ public class Mahasiswa {
 		 */
 		protected final MataKuliah mataKuliah;
 		/**
+		 * Kelas kuliah
+		 */
+		protected final Character kelas;
+		/**
+		 * Nilai ART
+		 */
+		protected final Map<String, Double> nilaiTugas;
+		/**
+		 * Nilai UTS
+		 */
+		protected final Double nilaiUTS;
+		/**
+		 * Nilai UAS
+		 */
+		protected final Double nilaiUAS;
+		/**
 		 * Nilai Akhir
 		 */
 		protected final String nilaiAkhir;
@@ -392,6 +408,21 @@ public class Mahasiswa {
 			this.tahunSemester = tahunSemester;
 			this.mataKuliah = mataKuliah;
 			this.nilaiAkhir = nilaiAkhir;
+			this.kelas = null;
+			this.nilaiTugas = null;
+			this.nilaiUTS = null;
+			this.nilaiUAS = null;
+		}
+
+		public Nilai(TahunSemester tahunSemester, MataKuliah mataKuliah, Character kelas, Map<String, Double> nilaiTugas, Double nilaiUTS, Double nilaiUAS, String nilaiAkhir) {
+			super();
+			this.tahunSemester = tahunSemester;
+			this.mataKuliah = mataKuliah;
+			this.nilaiAkhir = nilaiAkhir;
+			this.kelas = kelas;
+			this.nilaiTugas = nilaiTugas;
+			this.nilaiUTS = nilaiUTS;
+			this.nilaiUAS = nilaiUAS;
 		}
 
 		public MataKuliah getMataKuliah() {
