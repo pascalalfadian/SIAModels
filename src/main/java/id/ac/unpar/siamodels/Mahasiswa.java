@@ -19,6 +19,9 @@ public class Mahasiswa {
 	protected String photoPath;
 	protected List<JadwalKuliah> jadwalKuliahList;
 	protected SortedMap<LocalDate, Integer> nilaiTOEFL;
+	protected Status status;
+	protected LocalDate tanggalLahir;
+	protected JenisKelamin jenisKelamin;
 
 	public Mahasiswa(String npm) throws NumberFormatException {
 		super();
