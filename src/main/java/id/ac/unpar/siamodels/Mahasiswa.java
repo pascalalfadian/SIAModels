@@ -493,10 +493,9 @@ public class Mahasiswa {
 
 		@Override
 		public String toString() {
-			return "Nilai [tahunSemester=" + tahunSemester + ", mataKuliah=" + mataKuliah + ", nilaiAkhir="
-				+ nilaiAkhir + "]";
+			return "{" + "tahunSemester=" + tahunSemester + ", mataKuliah=" + mataKuliah + ", kelas=" + kelas + ", nilaiTugas=" + nilaiTugas + ", nilaiUTS=" + nilaiUTS + ", nilaiUAS=" + nilaiUAS + ", nilaiAkhir=" + nilaiAkhir + '}';
 		}
-
+		
 		/**
 		 * Pembanding antara satu nilai dengan nilai lainnya, secara
 		 * kronologis waktu pengambilan.

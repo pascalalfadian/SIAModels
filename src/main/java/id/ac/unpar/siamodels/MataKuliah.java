@@ -34,4 +34,9 @@ public abstract class MataKuliah {
 	public Integer getSks() {
 		return sks;
 	}
+
+	@Override
+	public String toString() {
+		return "{" + "kode=" + kode + ", nama=" + nama + ", sks=" + sks + '}';
+	}
 }

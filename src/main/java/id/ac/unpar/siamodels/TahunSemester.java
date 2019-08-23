@@ -109,8 +109,7 @@ public final class TahunSemester implements Comparable<TahunSemester> {
 
 	@Override
 	public String toString() {
-		return "TahunSemester [" + getTahun() + "/" + getSemester() + "]";
-	}
-	
+		return "{" + "kodeTahunSemester=" + kodeTahunSemester + '}';
+	}	
 	
 }
