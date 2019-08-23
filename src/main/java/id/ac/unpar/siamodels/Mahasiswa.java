@@ -137,7 +137,7 @@ public class Mahasiswa {
 		int totalSKS = 0;
 		// Cari nilai lulus terbaik setiap kuliah
 		for (Nilai nilai : localRiwayatNilai) {
-			if (nilai.getNilaiAkhir().equals("")) {
+			if (nilai.getNilaiAkhir() == null) {
 				continue;
 			}
 			if (lulusSaja && nilai.getNilaiAkhir().equals("E")) {
@@ -181,7 +181,7 @@ public class Mahasiswa {
 		int totalSKS = 0;
 		// Cari nilai setiap kuliah
 		for (Nilai nilai : localRiwayatNilai) {
-			if (nilai.getNilaiAkhir().equals("")) {
+			if (nilai.getNilaiAkhir() == null) {
 				continue;
 			}
 			Double angkaAkhir = nilai.getAngkaAkhir();
@@ -270,7 +270,7 @@ public class Mahasiswa {
 		int totalSKS = 0;
 		// Tambahkan SKS setiap kuliah
 		for (Nilai nilai : localRiwayatNilai) {
-			if (nilai.getNilaiAkhir().equals("")) {
+			if (nilai.getNilaiAkhir() == null) {
 				continue;
 			}
 			if (lulusSaja && nilai.getNilaiAkhir().equals("E")) {
@@ -317,7 +317,7 @@ public class Mahasiswa {
 		for (Nilai nilai : riwayatNilai) {
 			if (nilai.getMataKuliah().getKode().equals(kodeMataKuliah)) {
 				String na = nilai.getNilaiAkhir();
-				if (!na.equals("") && na.compareTo("A") >= 0 && na.compareTo("D") <= 0) {
+				if (na != null && na.compareTo("A") >= 0 && na.compareTo("D") <= 0) {
 					return true;
 				}
 			}
@@ -449,7 +449,7 @@ public class Mahasiswa {
 		 * {@link #getNilaiAkhir() mengembalikan 'K' atau null}
 		 */
 		public Double getAngkaAkhir() {
-			if (nilaiAkhir.equals("")) {
+			if (nilaiAkhir == null) {
 				return null;
 			}
 			switch (nilaiAkhir) {
