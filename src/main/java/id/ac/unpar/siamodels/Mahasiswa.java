@@ -79,6 +79,31 @@ public class Mahasiswa {
 	public void setNilaiTOEFL(SortedMap<LocalDate, Integer> nilaiTOEFL) {
 		this.nilaiTOEFL = nilaiTOEFL;
 	}
+	
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public LocalDate getTanggalLahir() {
+		return tanggalLahir;
+	}
+
+	public void setTanggalLahir(LocalDate tanggalLahir) {
+		this.tanggalLahir = tanggalLahir;
+	}
+
+	public JenisKelamin getJenisKelamin() {
+		return jenisKelamin;
+	}
+
+	public void setJenisKelamin(JenisKelamin jenisKelamin) {
+		this.jenisKelamin = jenisKelamin;
+	}
 
 	/**
 	 * Menghitung IPK mahasiswa sampai saat ini, dengan aturan:
