@@ -1,9 +1,10 @@
 package id.ac.unpar.siamodels;
 
+import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public class JadwalKuliah {
+public class JadwalKuliah implements Serializable {
 	protected MataKuliah mataKuliah;
 	protected Character kelas;
 	protected DayOfWeek hari;

@@ -1,11 +1,13 @@
 package id.ac.unpar.siamodels;
 
+import java.io.Serializable;
+
 /**
  * Menyimpan konstanta untuk semester beserta tahunnya di UNPAR.
  * @author pascal
  *
  */
-public final class TahunSemester implements Comparable<TahunSemester> {
+public final class TahunSemester implements Comparable<TahunSemester>, Serializable {
 	
 	/**
 	 * Kode semester 3 dijit, sesuai DPS:

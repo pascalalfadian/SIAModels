@@ -1,6 +1,8 @@
 package id.ac.unpar.siamodels;
 
-public class Dosen {
+import java.io.Serializable;
+
+public class Dosen implements Serializable {
 	private String nik;
 	private String nama;
 

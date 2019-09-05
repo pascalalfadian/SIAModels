@@ -1,6 +1,8 @@
 package id.ac.unpar.siamodels;
 
-public abstract class MataKuliah {
+import java.io.Serializable;
+
+public abstract class MataKuliah implements Serializable {
 	private final String kode;
 	private final String nama;
 	private final Integer sks;

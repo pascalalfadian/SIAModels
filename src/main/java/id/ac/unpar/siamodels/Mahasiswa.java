@@ -1,7 +1,15 @@
 package id.ac.unpar.siamodels;
 
+import java.awt.Image;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,9 +17,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.StringTokenizer;
 import java.util.TreeSet;
+import javax.imageio.ImageIO;
 
-public class Mahasiswa {
+public class Mahasiswa implements Serializable {
 
 	protected final String npm;
 	protected String nama;
@@ -44,6 +54,11 @@ public class Mahasiswa {
 		return npm;
 	}
 
+	/**
+	 * Mendapatkan URL dari foto mahasiswa. Tip: gunakan
+	 * {@link #getPhotoImage()} karena lebih mudah (hasilnya sudah diproses)
+	 * @return path foto.
+	 */
 	public String getPhotoPath() {
 		return photoPath;
 	}
@@ -105,6 +120,33 @@ public class Mahasiswa {
 		this.jenisKelamin = jenisKelamin;
 	}
 
+	/**
+	 * Mendapatkan foto mahasiswa yang dibungkus dalam kelas
+	 * {@link java.awt.Image}. Berbeda dengan method
+	 * {@link #getPhotoPath()}, method ini akan menghasilkan image, apapun
+	 * bentuk photo path nya (bisa berupa URL ataupun base64 string).
+	 * @return foto mahasiswa.
+	 * @throws IOException jika ada kesalahan saat membaca
+	 * @throws MalformedURLException jika URL tidak didukung
+	 */
+	public Image getPhotoImage() throws IOException, MalformedURLException {
+		String localPhotoPath = this.getPhotoPath();
+		if (localPhotoPath.startsWith("data")) {
+			StringTokenizer tokenizer = new StringTokenizer(localPhotoPath, ":;,");
+			String scheme = tokenizer.nextToken();
+			String mimeType = tokenizer.nextToken();
+			String encoding = tokenizer.nextToken();
+			String data = tokenizer.nextToken().trim();
+			// TODO parameters validation
+			Base64.Decoder decoder = Base64.getDecoder();
+			byte[] decodedData  = decoder.decode(data);
+			InputStream inputStream = new ByteArrayInputStream(decodedData);
+			return ImageIO.read(inputStream);
+		} else {
+			return ImageIO.read(new URL(localPhotoPath));
+		}
+	}
+	
 	/**
 	 * Menghitung IPK mahasiswa sampai saat ini, dengan aturan:
 	 * <ul>
@@ -400,7 +442,7 @@ public class Mahasiswa {
 	 * @author pascal
 	 *
 	 */
-	public static class Nilai {
+	public static class Nilai implements Serializable {
 
 		/**
 		 * Tahun dan Semester kuliah ini diambil
