@@ -1,6 +1,5 @@
 package id.ac.unpar.siamodels;
 
-import java.awt.Image;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +18,6 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-import javax.imageio.ImageIO;
 
 public class Mahasiswa implements Serializable {
 
@@ -129,7 +127,7 @@ public class Mahasiswa implements Serializable {
 	 * @throws IOException jika ada kesalahan saat membaca
 	 * @throws MalformedURLException jika URL tidak didukung
 	 */
-	public Image getPhotoImage() throws IOException, MalformedURLException {
+	public byte[] getPhotoImage() throws IOException, MalformedURLException {
 		String localPhotoPath = this.getPhotoPath();
 		if (localPhotoPath.startsWith("data")) {
 			StringTokenizer tokenizer = new StringTokenizer(localPhotoPath, ":;,");
@@ -139,11 +137,20 @@ public class Mahasiswa implements Serializable {
 			String data = tokenizer.nextToken().trim();
 			// TODO parameters validation
 			Base64.Decoder decoder = Base64.getDecoder();
-			byte[] decodedData  = decoder.decode(data);
-			InputStream inputStream = new ByteArrayInputStream(decodedData);
-			return ImageIO.read(inputStream);
+			byte[] decodedData  = decoder.decode(data);			
+			return decodedData;
 		} else {
-			return ImageIO.read(new URL(localPhotoPath));
+			URL url = new URL(localPhotoPath);
+			ByteArrayOutputStream output = new ByteArrayOutputStream();
+			URLConnection conn = url.openConnection();
+			InputStream inputStream = conn.getInputStream();
+			int n = 0;
+			byte[] buffer = new byte[1024];
+			while(-1 != (n = inputStream.read(buffer))){
+                            output.write(buffer,0,n);
+			}
+			byte[] img = output.toByteArray();
+			return img;
 		}
 	}
 	
