@@ -1,11 +1,12 @@
 package id.ac.unpar.siamodels;
 
-import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Base64;
