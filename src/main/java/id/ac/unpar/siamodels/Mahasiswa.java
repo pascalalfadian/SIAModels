@@ -156,43 +156,9 @@ public class Mahasiswa implements Serializable {
 	}
 	
 	/**
-	 * Menghitung IPK mahasiswa sampai saat ini, dengan aturan:
+	 * Menghitung IPK mahasiswa sampai saat ini, sesuai DPS SIAKAD:
 	 * <ul>
-	 * <li>Kuliah yang tidak lulus tidak dihitung
-	 * <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
-	 * </ul>
-	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah
-	 * mengandung nilai per mata kuliah!
-	 *
-	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum
-	 * mengambil satu kuliah pun.
-	 * @deprecated Gunakan {@link #calculateIPLulus()}, nama lebih konsisten
-	 * dengan DPS.
-	 */
-	public double calculateIPKLulus() throws ArrayIndexOutOfBoundsException {
-		return calculateIPTempuh(true);
-	}
-
-	/**
-	 * Menghitung IP mahasiswa sampai saat ini, dengan aturan:
-	 * <ul>
-	 * <li>Kuliah yang tidak lulus tidak dihitung
-	 * <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
-	 * </ul>
-	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah
-	 * mengandung nilai per mata kuliah!
-	 *
-	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum
-	 * mengambil satu kuliah pun.
-	 */
-	public double calculateIPLulus() throws ArrayIndexOutOfBoundsException {
-		return calculateIPTempuh(true);
-	}
-
-	/**
-	 * Menghitung IP mahasiswa sampai saat ini, dengan aturan:
-	 * <ul>
-	 * <li>Perhitungan kuliah yang tidak lulus ditentukan parameter
+	 * <li>Kuliah tidak lulus tetap dihitung
 	 * <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
 	 * </ul>
 	 *
@@ -203,87 +169,32 @@ public class Mahasiswa implements Serializable {
 	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum
 	 * mengambil satu kuliah pun.
 	 */
-	public double calculateIPTempuh(boolean lulusSaja) throws ArrayIndexOutOfBoundsException {
-		List<Nilai> localRiwayatNilai = getRiwayatNilai();
+	public double calculateIPK() throws ArrayIndexOutOfBoundsException {
+		List<Nilai> localRiwayatNilai = this.getRiwayatNilai();
 		if (localRiwayatNilai.isEmpty()) {
 			return Double.NaN;
 		}
-		Map<String, Double> nilaiTerbaik = new HashMap<>();
+		Map<String, Mahasiswa.Nilai> nilaiTerbaik = new HashMap<>();
 		int totalSKS = 0;
 		// Cari nilai lulus terbaik setiap kuliah
-		for (Nilai nilai : localRiwayatNilai) {
+		for (Mahasiswa.Nilai nilai: localRiwayatNilai) {
 			if (nilai.getNilaiAkhir() == null) {
 				continue;
-			}
-			if (lulusSaja && nilai.getNilaiAkhir().equals("E")) {
-				continue;
-			}
+			}			
 			String kodeMK = nilai.getMataKuliah().getKode();
-			Double angkaAkhir = nilai.getAngkaAkhir();
-			int sks = nilai.getMataKuliah().getSks();
 			if (!nilaiTerbaik.containsKey(kodeMK)) {
-				totalSKS += sks;
-				nilaiTerbaik.put(kodeMK, sks * angkaAkhir);
-			} else if (sks * angkaAkhir > nilaiTerbaik.get(kodeMK)) {
-				nilaiTerbaik.put(kodeMK, sks * angkaAkhir);
+				nilaiTerbaik.put(kodeMK, nilai);
+			} else if (nilai.getAngkaAkhir() > nilaiTerbaik.get(kodeMK).getAngkaAkhir()) {
+				nilaiTerbaik.put(kodeMK, nilai);
 			}
 		}
 		// Hitung IPK dari nilai-nilai terbaik
 		double totalNilai = 0.0;
-		for (Double nilaiAkhir : nilaiTerbaik.values()) {
-			totalNilai += nilaiAkhir;
+		for (Map.Entry<String, Nilai> esn: nilaiTerbaik.entrySet()) {
+			totalSKS = esn.getValue().getMataKuliah().getSks();
+			totalNilai = esn.getValue().getAngkaAkhir();
 		}
 		return totalNilai / totalSKS;
-	}
-
-	/**
-	 * Menghitung IP Kumulatif mahasiswa sampai saat ini, dengan aturan:
-	 * <ul>
-	 * <li>Jika pengambilan beberapa kali, diambil semua.
-	 * </ul>
-	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah
-	 * mengandung nilai per mata kuliah!
-	 *
-	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum
-	 * mengambil satu kuliah pun.
-	 */
-	public double calculateIPKumulatif() throws ArrayIndexOutOfBoundsException {
-		List<Nilai> localRiwayatNilai = getRiwayatNilai();
-		if (localRiwayatNilai.isEmpty()) {
-			return Double.NaN;
-		}
-		double totalNilai = 0.0;
-		int totalSKS = 0;
-		// Cari nilai setiap kuliah
-		for (Nilai nilai : localRiwayatNilai) {
-			if (nilai.getNilaiAkhir() == null) {
-				continue;
-			}
-			Double angkaAkhir = nilai.getAngkaAkhir();
-			int sks = nilai.getMataKuliah().getSks();
-			totalSKS += sks;
-			totalNilai += sks * angkaAkhir;
-		}
-		return totalNilai / totalSKS;
-	}
-
-	/**
-	 * Menghitung IPK mahasiswa sampai saat ini, dengan aturan:
-	 * <ul>
-	 * <li>Perhitungan kuliah yang tidak lulus ditentukan parameter
-	 * <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
-	 * </ul>
-	 *
-	 * @param lulusSaja set true jika ingin membuang mata kuliah tidak lulus
-	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah
-	 * mengandung nilai per mata kuliah!
-	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum
-	 * mengambil satu kuliah pun.
-	 * @deprecated Gunakan {@link #calculateIPKTempuh(boolean)}, nama lebih
-	 * konsisten dengan DPS.
-	 */
-	public double calculateIPKTempuh(boolean lulusSaja) throws ArrayIndexOutOfBoundsException {
-		return calculateIPTempuh(lulusSaja);
 	}
 
 	/**
