@@ -2,13 +2,9 @@ package id.ac.unpar.siamodels.matakuliah;
 
 import id.ac.unpar.siamodels.InfoMataKuliah;
 import id.ac.unpar.siamodels.MataKuliah;
-import id.ac.unpar.siamodels.matakuliah.interfaces.HasPrasyarat;
-import id.ac.unpar.siamodels.Mahasiswa;
-
-import java.util.List;
 
 
-@InfoMataKuliah(nama = "Topik Khusus Sistem Informasi 2", sks = 2)
+@InfoMataKuliah(nama = "Topik Khusus Sistem Informasi 2", sks = 3)
 public class AIF183346 extends MataKuliah{
 
 }

@@ -1,6 +1,5 @@
 package id.ac.unpar.siamodels;
 
-import java.lang.annotation.Annotation;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.logging.Logger;
@@ -17,7 +16,7 @@ public class MataKuliahFactory {
 	/**
 	 * Lokasi package untuk daftar mata kuliah
 	 */
-	public static String DEFAULT_MATAKULIAH_PACKAGE = "id.ac.unpar.siamodels.matakuliah.kurikulum2018";
+	public static String DEFAULT_MATAKULIAH_PACKAGE = "id.ac.unpar.siamodels.matakuliah";
 
 	/**
 	 * Singleton instance to factory.

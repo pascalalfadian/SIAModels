@@ -162,10 +162,6 @@ public class Mahasiswa implements Serializable {
 	 * <li>Jika pengambilan beberapa kali, diambil <em>nilai terbaik</em>.
 	 * </ul>
 	 *
-	 * @param lulusSaja set true jika ingin membuang mata kuliah tidak
-	 * lulus, false jika ingin semua (sama dengan "IP N. Terbaik" di DPS)
-	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah
-	 * mengandung nilai per mata kuliah!
 	 * @return IPK Lulus, atau {#link {@link Double#NaN}} jika belum
 	 * mengambil satu kuliah pun.
 	 */
@@ -175,7 +171,6 @@ public class Mahasiswa implements Serializable {
 			return Double.NaN;
 		}
 		Map<String, Mahasiswa.Nilai> nilaiTerbaik = new HashMap<>();
-		int totalSKS = 0;
 		// Cari nilai lulus terbaik setiap kuliah
 		for (Mahasiswa.Nilai nilai: localRiwayatNilai) {
 			if (nilai.getNilaiAkhir() == null) {
@@ -189,12 +184,15 @@ public class Mahasiswa implements Serializable {
 			}
 		}
 		// Hitung IPK dari nilai-nilai terbaik
-		double totalNilai = 0.0;
+		int totalSKS = 0;		
+		double totalAngkaAkhir = 0.0;
 		for (Map.Entry<String, Nilai> esn: nilaiTerbaik.entrySet()) {
-			totalSKS = esn.getValue().getMataKuliah().getSks();
-			totalNilai = esn.getValue().getAngkaAkhir();
+			int sks = esn.getValue().getMataKuliah().getSks();
+			double aa = esn.getValue().getAngkaAkhir();
+			totalSKS += sks;
+			totalAngkaAkhir += sks * aa;
 		}
-		return totalNilai / totalSKS;
+		return totalAngkaAkhir / totalSKS;
 	}
 
 	/**
@@ -205,30 +203,28 @@ public class Mahasiswa implements Serializable {
 	 * Sebelum memanggil method ini, {@link #getRiwayatNilai()} harus sudah
 	 * mengandung nilai per mata kuliah!
 	 *
+	 * @param tahunSemester Tahun Semester untuk dihitung IPS nya
 	 * @return nilai IPS sampai saat ini
 	 * @throws ArrayIndexOutOfBoundsException jika belum ada nilai satupun
 	 */
-	public double calculateIPS() throws ArrayIndexOutOfBoundsException {
+	public double calculateIPS(TahunSemester tahunSemester) throws ArrayIndexOutOfBoundsException {
 		List<Nilai> localRiwayatNilai = getRiwayatNilai();
 		if (localRiwayatNilai.isEmpty()) {
 			throw new ArrayIndexOutOfBoundsException("Minimal harus ada satu nilai untuk menghitung IPS");
 		}
 		int lastIndex = localRiwayatNilai.size() - 1;
-		TahunSemester tahunSemester = localRiwayatNilai.get(lastIndex).getTahunSemester();
-		double totalNilai = 0;
+		double totalAngkaAkhir = 0;
 		double totalSKS = 0;
 		for (int i = lastIndex; i >= 0; i--) {
 			Nilai nilai = localRiwayatNilai.get(i);
 			if (nilai.tahunSemester.equals(tahunSemester)) {
 				if (nilai.getAngkaAkhir() != null) {
-					totalNilai += nilai.getMataKuliah().getSks() * nilai.getAngkaAkhir();
+					totalAngkaAkhir += nilai.getMataKuliah().getSks() * nilai.getAngkaAkhir();
 					totalSKS += nilai.getMataKuliah().getSks();
 				}
-			} else {
-				break;
 			}
 		}
-		return totalNilai / totalSKS;
+		return totalAngkaAkhir / totalSKS;
 	}
 
 	/**
