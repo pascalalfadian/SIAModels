@@ -2,7 +2,7 @@ package id.ac.unpar.siamodels;
 
 import java.io.Serializable;
 
-public abstract class MataKuliah implements Serializable {
+public abstract class MataKuliah implements Serializable, Comparable<MataKuliah> {
 	private final String kode;
 	private final String nama;
 	private final Integer sks;
@@ -40,5 +40,10 @@ public abstract class MataKuliah implements Serializable {
 	@Override
 	public String toString() {
 		return "{" + "kode=" + kode + ", nama=" + nama + ", sks=" + sks + '}';
+	}
+	
+	@Override
+	public int compareTo(MataKuliah mk) {
+		return this.getKode().compareTo(mk.getKode());
 	}
 }

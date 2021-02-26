@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 
-public class JadwalKuliah implements Serializable {
+public class JadwalKuliah implements Serializable, Comparable<JadwalKuliah> {
 	protected MataKuliah mataKuliah;
 	protected Character kelas;
 	protected DayOfWeek hari;
@@ -121,5 +121,28 @@ public class JadwalKuliah implements Serializable {
 		default:
 			return null;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "JadwalKuliah{" + "mataKuliah=" + mataKuliah.getKode() + ", kelas=" + kelas + ", hari=" + hari + ", waktu=" + waktuMulai + "-" + waktuSelesai + ", lokasi=" + lokasi + ", pengajar=" + (pengajar == null ? "null" : pengajar.getNama()) + '}';
+	}
+
+	@Override
+	public int compareTo(JadwalKuliah jk) {
+		int compareResult;
+		if ((compareResult = this.hari.compareTo(jk.hari))!= 0) {
+			return compareResult;
+		}
+		if ((compareResult = this.waktuMulai.compareTo(jk.waktuMulai))!= 0) {
+			return compareResult;
+		}
+		if ((compareResult = this.waktuSelesai.compareTo(jk.waktuSelesai))!= 0) {
+			return compareResult;
+		}
+		if ((compareResult = this.mataKuliah.compareTo(jk.mataKuliah))!= 0) {
+			return compareResult;
+		}
+		return 0;		
 	}
 }

@@ -343,7 +343,12 @@ public class Mahasiswa implements Serializable {
 	 * @return tahun angkatan
 	 */
 	public int getTahunAngkatan() {
-		return Integer.parseInt(getNpm().substring(0, 4));
+		int tahun = Integer.parseInt(getNpm().substring(0, 4));
+		if (tahun > 1900 && tahun < 2100) {
+			return tahun;
+		}
+		// NPM versi baru, sekitar 2019
+		return 2000 + Integer.parseInt(getNpm().substring(3, 5));
 	}
 
 	@Override
