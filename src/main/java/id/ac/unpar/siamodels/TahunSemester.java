@@ -77,6 +77,23 @@ public final class TahunSemester implements Comparable<TahunSemester>, Serializa
 	}
 
 	/**
+	 * Mendapatkan tahun/semester berikutnya
+	 * @return tahun/semester berikutnya
+	 */
+	public TahunSemester nextSemester() {
+		switch (getSemester()) {
+			case GANJIL:
+				return new TahunSemester(getTahun(), Semester.GENAP);
+			case GENAP:
+				return new TahunSemester(getTahun(), Semester.PENDEK);
+			case PENDEK:
+				return new TahunSemester(getTahun() + 1, Semester.GANJIL);
+			default:
+				throw new IllegalArgumentException("Semester harus GANJIL, GENAP, atau PENDEK");
+		}
+	}
+	
+	/**
 	 * Mendapatkan kode tahun/semester sesuai aturan di DPS.
 	 * @return kode tahun/semester sesuai aturan di DPS.
 	 */
